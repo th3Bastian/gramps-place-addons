@@ -1,0 +1,30 @@
+# HideDuplicatePlaceNames
+# Copyright (C) 2026 Sebastian Klossek
+# This file is distributed under the same license as the package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: HideDuplicatePlaceNames 1.0.1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Church"
+msgstr ""
+
+msgid "Cemetery"
+msgstr ""
+
+msgid "Place names in immediately consecutive identical entries are combined when their place type is included in this list. Capitalization must match the place type exactly."
+msgstr ""
+
+msgid "Place types:"
+msgstr ""
+
+msgid "Place display"
+msgstr ""
+
+msgid "Hide duplicate place names"
+msgstr ""
+
+msgid "Combines immediately consecutive identical place names for selected place types."
+msgstr ""

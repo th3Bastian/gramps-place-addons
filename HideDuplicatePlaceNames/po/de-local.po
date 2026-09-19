@@ -1,0 +1,27 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: HideDuplicatePlaceNames 1.0.1\n"
+"Language: de\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Church"
+msgstr "Kirche"
+
+msgid "Cemetery"
+msgstr "Friedhof"
+
+msgid "Place names in immediately consecutive identical entries are combined when their place type is included in this list. Capitalization must match the place type exactly."
+msgstr "Ortsnamen werden bei unmittelbar aufeinanderfolgenden gleichen Einträgen zusammengefasst, wenn ihre Ortsart in dieser Liste enthalten ist. Groß- und Kleinschreibung muss dabei exakt mit der Ortsart übereinstimmen."
+
+msgid "Place types:"
+msgstr "Ortsarten:"
+
+msgid "Place display"
+msgstr "Ortsanzeige"
+
+msgid "Hide duplicate place names"
+msgstr "Doppelte Ortsnamen unterdrücken"
+
+msgid "Combines immediately consecutive identical place names for selected place types."
+msgstr "Fasst unmittelbar aufeinanderfolgende gleiche Ortsnamen für ausgewählte Ortsarten zusammen."
