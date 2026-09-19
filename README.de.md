@@ -49,6 +49,13 @@ und Ende eines Eintrags werden entfernt; beim Verlassen des Felds wird die Liste
 alphabetisch sortiert. Ein Wert wie `Stadt (Einheitsgemeinde)` wird unverändert
 unterstützt.
 
+Wenn man die offizielle Ortsstruktur des
+[Geschichtlichen Ortsverzeichnisses (GOV)](https://gov.genealogy.net/) abbildet,
+ergibt sich oft derselbe Name für eine Stadt und den darunterliegenden Wohnplatz.
+Das ist zwar korrekt, macht die Ortsdarstellung aber unübersichtlich. Diese
+Erweiterung macht solche Hierarchien besser lesbar, ohne die zugrunde liegenden
+Daten zu verändern.
+
 ## Aktualisieren und Fehler suchen
 
 Wenn eine neue Version veröffentlicht wird, erkennt Gramps sie über dieselbe
@@ -80,3 +87,7 @@ Repositorys melden.
 
 Jede Erweiterung dokumentiert ihr eigenes Urheberrecht und ihre Lizenz.
 Doppelte Ortsnamen unterdrücken steht unter GPL-2.0-or-later.
+
+## Hinweis zur Entstehung
+
+Dieses Addon wurde mit Hilfe von ChatGPT erstellt.

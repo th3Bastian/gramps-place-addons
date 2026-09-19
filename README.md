@@ -44,6 +44,12 @@ Blank entries and duplicates are removed automatically. Leading and trailing
 spaces are removed, and entries are sorted alphabetically when the field loses
 focus. A value such as `City (municipality)` is supported unchanged.
 
+When mapping the official place hierarchy from the
+[Geschichtliches Ortsverzeichnis (GOV)](https://gov.genealogy.net/), a city and
+the locality immediately below it often have the same name. This is correct,
+but it can make place displays difficult to read. This add-on is intended to
+make those hierarchies easier to scan without changing the underlying data.
+
 ## Updating and troubleshooting
 
 When a later version is published, Gramps can discover it through the same
@@ -72,3 +78,7 @@ Please report problems or suggestions through the repository's
 
 Each add-on documents its copyright and license. Hide Duplicate Place Names is
 licensed under GPL-2.0-or-later.
+
+## Acknowledgement
+
+This add-on was created with assistance from ChatGPT.
