@@ -9,5 +9,17 @@
     "s": 3,
     "z": "HideDuplicatePlaceNames.addon.tgz",
     "h": "https://github.com/th3Bastian/gramps-place-addons/tree/main/HideDuplicatePlaceNames"
+  },
+  {
+    "n": "CustomGOVImport",
+    "i": "CustomGOVImport",
+    "t": 10,
+    "d": "Gramplet to get places from the GOV database",
+    "v": "1.0.0",
+    "g": "6.0",
+    "s": 3,
+    "a": 1,
+    "z": "CustomGOVImport.addon.tgz",
+    "h": "https://github.com/th3Bastian/gramps-place-addons/blob/main/CustomGOVImport/README.md"
   }
 ]
