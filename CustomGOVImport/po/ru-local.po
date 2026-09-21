@@ -1,0 +1,49 @@
+# CustomGOVImport translations reconstructed from the bundled addon.mo.
+# Original source comments and untranslated entries are not stored in .mo files.
+# Missing messages from the current plugin source are included untranslated.
+
+msgid ""
+msgstr "Project-Id-Version: gramps50\nReport-Msgid-Bugs-To: \nPO-Revision-Date: 2025-10-31 18:03+0000\nLast-Translator: Mikhail Burkasov <mburkasov@gmail.com>\nLanguage-Team: Russian <https://hosted.weblate.org/projects/gramps-project/addons/ru/>\nLanguage: ru\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\nX-Generator: Weblate 5.14.1-dev\nX-Poedit-Language: Russian\nX-Poedit-Country: RUSSIAN FEDERATION\n"
+
+#: CustomGOVImport.py:362
+msgid "Add GOV-id place %s"
+msgstr "Добавить GOV-id место %s"
+
+#: CustomGOVImport.gpr.py:38 CustomGOVImport.gpr.py:50
+msgid "CustomGOVImport"
+msgstr ""
+
+#: CustomGOVImport.py:394
+msgid "CustomGOVImport error: %s"
+msgstr ""
+
+#: CustomGOVImport.py:427
+msgid "GOV link"
+msgstr ""
+
+#: CustomGOVImport.py:329
+msgid "Get Place"
+msgstr "Получить место"
+
+msgid "GetGOV"
+msgstr "Места из GOV"
+
+#: CustomGOVImport.gpr.py:39
+msgid "Gramplet to get places from the GOV database"
+msgstr "Грамлет для получения местоположений из базы данных GOV"
+
+#: CustomGOVImport.py:321
+msgid "Place ID to import from GOV (Historical Gazetteer):"
+msgstr ""
+
+#: CustomGOVImport.py:570
+msgid "after %s"
+msgstr "после %s"
+
+#: CustomGOVImport.py:572
+msgid "before %s"
+msgstr "до %s"
+
+#: CustomGOVImport.py:568
+msgid "from %s to %s"
+msgstr ""

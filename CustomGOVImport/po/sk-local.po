@@ -1,0 +1,115 @@
+# CustomGOVImport translations reconstructed from the bundled addon.mo.
+# Original source comments and untranslated entries are not stored in .mo files.
+# Missing messages from the current plugin source are included untranslated.
+
+msgid ""
+msgstr "Project-Id-Version: GRAMPS 3.1.3\nReport-Msgid-Bugs-To: \nPO-Revision-Date: 2026-05-11 10:34+0000\nLast-Translator: Milan <mobrcian@hotmail.com>\nLanguage-Team: Slovak <https://hosted.weblate.org/projects/gramps-project/addons/sk/>\nLanguage: sk\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\nX-Generator: Weblate 2026.5-dev\n"
+
+#: CustomGOVImport.py:362
+msgid "Add GOV-id place %s"
+msgstr "Pridať miesto s ID GOV %s"
+
+#: CustomGOVImport.gpr.py:38 CustomGOVImport.gpr.py:50
+msgid "CustomGOVImport"
+msgstr ""
+
+#: CustomGOVImport.py:394
+msgid "CustomGOVImport error: %s"
+msgstr ""
+
+msgid "GOV error on id %s with code: "
+msgstr "Chyba GOV na ID %s s kódom: "
+
+#: CustomGOVImport.py:427
+msgid "GOV link"
+msgstr "Odkaz na GOV"
+
+#: CustomGOVImport.py:329
+msgid "Get Place"
+msgstr "Získať miesto"
+
+msgid "GetGOV"
+msgstr "GetGOV"
+
+msgid "GetGOV error: %s"
+msgstr "Chyba GetGOV: %s"
+
+#: CustomGOVImport.gpr.py:39
+msgid "Gramplet to get places from the GOV database"
+msgstr "Gramplet na získanie miest z databázy GOV"
+
+#: CustomGOVImport.py:321
+msgid "Place ID to import from GOV (Historical Gazetteer):"
+msgstr "ID miesta na import z GOV (Historical Gazetteer):"
+
+#: CustomGOVImport.py:458
+msgid "Do not import parent places"
+msgstr "Neimportovať nadradené miesta"
+
+#: CustomGOVImport.py:650
+msgid "Reference to %s not created because the place does not exist."
+msgstr "Odkaz na %s nebol vytvorený, pretože miesto neexistuje."
+
+#: CustomGOVImport.py:570
+msgid "from %s"
+msgstr "od %s"
+
+#: CustomGOVImport.py:572
+msgid "to %s"
+msgstr "do %s"
+
+msgctxt "end"
+msgid "from %(begin)s to %(end)s"
+msgstr "od %(begin)s do %(end)s"
+
+#: CustomGOVImport.py:568
+msgid "from %s to %s"
+msgstr ""
+
+msgid "Please enter a GOV ID."
+msgstr "Zadajte ID GOV."
+
+msgid "Starting import: %s"
+msgstr "Spúšťa sa import: %s"
+
+msgid "Import failed: %s"
+msgstr "Import zlyhal: %s"
+
+msgid "Loading GOV place types..."
+msgstr "Načítavajú sa typy miest GOV..."
+
+msgid "Import stopped: no GOV place types available."
+msgstr "Import bol zastavený: nie sú k dispozícii žiadne typy miest GOV."
+
+msgid "Place already exists: %s"
+msgstr "Miesto už existuje: %s"
+
+msgid "Loading place: %s"
+msgstr "Načítava sa miesto: %s"
+
+msgid "Place added: %s"
+msgstr "Miesto bolo pridané: %s"
+
+msgid "Saving place relationships..."
+msgstr "Ukladajú sa vzťahy medzi miestami..."
+
+msgid "Import finished."
+msgstr "Import bol dokončený."
+
+msgid "GOV request failed: %s"
+msgstr "Požiadavka GOV zlyhala: %s"
+
+msgid "No GOV data found: %s"
+msgstr "Nenašli sa žiadne údaje GOV: %s"
+
+msgid "No usable place data: %s"
+msgstr "Žiadne použiteľné údaje o mieste: %s"
+
+msgid "Place types that should not be imported"
+msgstr "Typy miest, ktoré sa nemajú importovať"
+
+msgid "Place skipped by blacklist: %s (%s)"
+msgstr "Miesto bolo preskočené podľa zoznamu vylúčených typov: %s (%s)"
+
+msgid "References found: %s"
+msgstr "Našli sa referencie: %s"

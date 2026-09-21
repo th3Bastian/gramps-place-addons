@@ -1,0 +1,130 @@
+# CustomGOVImport translation template.
+# Copyright (C) 2026 Sebastian Klossek
+# This file is distributed under the same license as CustomGOVImport.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: CustomGOVImport 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/th3Bastian/gramps-place-addons/issues\n"
+"POT-Creation-Date: 2026-09-21 00:00+0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: CustomGOVImport.py:577
+msgid "Add GOV-id place %s"
+msgstr ""
+
+#: CustomGOVImport.gpr.py:39 CustomGOVImport.gpr.py:51
+msgid "CustomGOVImport"
+msgstr ""
+
+#: CustomGOVImport.py:659
+msgid "CustomGOVImport error: %s"
+msgstr ""
+
+#: CustomGOVImport.py:455
+msgid "Do not import parent places"
+msgstr ""
+
+#: CustomGOVImport.py:700
+msgid "GOV error on id %s with code: "
+msgstr ""
+
+#: CustomGOVImport.py:692
+msgid "GOV link"
+msgstr ""
+
+#: CustomGOVImport.py:658 CustomGOVImport.py:699
+msgid "GOV request failed: %s"
+msgstr ""
+
+#: CustomGOVImport.py:468
+msgid "Get Place"
+msgstr ""
+
+#: CustomGOVImport.gpr.py:40
+msgid "Gramplet to get places from the GOV database"
+msgstr ""
+
+#: CustomGOVImport.py:545
+msgid "Import failed: %s"
+msgstr ""
+
+#: CustomGOVImport.py:651
+msgid "Import finished."
+msgstr ""
+
+#: CustomGOVImport.py:575
+msgid "Import stopped: no GOV place types available."
+msgstr ""
+
+#: CustomGOVImport.py:572
+msgid "Loading GOV place types..."
+msgstr ""
+
+#: CustomGOVImport.py:593
+msgid "Loading place: %s"
+msgstr ""
+
+#: CustomGOVImport.py:709
+msgid "No GOV data found: %s"
+msgstr ""
+
+#: CustomGOVImport.py:614
+msgid "No usable place data: %s"
+msgstr ""
+
+#: CustomGOVImport.py:444
+msgid "Place ID to import from GOV (Historical Gazetteer):"
+msgstr ""
+
+#: CustomGOVImport.py:611
+msgid "Place added: %s"
+msgstr ""
+
+#: CustomGOVImport.py:582
+msgid "Place already exists: %s"
+msgstr ""
+
+#: CustomGOVImport.py:606
+msgid "Place skipped by blacklist: %s (%s)"
+msgstr ""
+
+#: CustomGOVImport.py:329 CustomGOVImport.py:384 CustomGOVImport.py:416
+msgid "Place types that should not be imported"
+msgstr ""
+
+#: CustomGOVImport.py:535
+msgid "Please enter a GOV ID."
+msgstr ""
+
+#: CustomGOVImport.py:628
+msgid "Reference to %s not created because the place does not exist."
+msgstr ""
+
+#: CustomGOVImport.py:586 CustomGOVImport.py:597
+msgid "References found: %s"
+msgstr ""
+
+#: CustomGOVImport.py:616
+msgid "Saving place relationships..."
+msgstr ""
+
+#: CustomGOVImport.py:542
+msgid "Starting import: %s"
+msgstr ""
+
+#: CustomGOVImport.py:843
+msgid "from %s"
+msgstr ""
+
+#: CustomGOVImport.py:845
+msgid "to %s"
+msgstr ""
+
+#: CustomGOVImport.py:839
+msgctxt "end"
+msgid "from %(begin)s to %(end)s"
+msgstr ""
+

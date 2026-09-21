@@ -9,6 +9,7 @@ Unabhängig gepflegte Gramps-Erweiterungen rund um Ortsdaten.
 | Erweiterung | Status | Zweck |
 | --- | --- | --- |
 | [Doppelte Ortsnamen unterdrücken](HideDuplicatePlaceNames/) | Stabil für Gramps 6.0 | Fasst unmittelbar aufeinanderfolgende gleiche Ortsnamen für ausgewählte Ortsarten in der Anzeige zusammen. |
+| [CustomGOVImport](CustomGOVImport/README.de.md) | Stabil für Gramps 6.0 | Importiert GOV-Orte mit konfigurierbaren ausgeschlossenen Ortsarten, optionalem Import übergeordneter Orte und Live-Log. |
 
 ## Installation über die Erweiterungsverwaltung
 
@@ -56,6 +57,84 @@ Das ist zwar korrekt, macht die Ortsdarstellung aber unübersichtlich. Diese
 Erweiterung macht solche Hierarchien besser lesbar, ohne die zugrunde liegenden
 Daten zu verändern.
 
+## CustomGOVImport
+
+CustomGOVImport importiert Orte aus dem Geschichtlichen Ortsverzeichnis (GOV)
+und folgt ihren ausgehenden Beziehungen zu übergeordneten Orten. Eine
+konfigurierbare Liste schließt ausgewählte Ortsarten vom Import aus, während
+die Suche nach zulässigen übergeordneten Orten fortgesetzt wird. Optional wird
+nur der angegebene Ort importiert und mit bereits in Gramps vorhandenen
+übergeordneten Orten verbunden. Fortschritt, ausgelassene Orte und fehlende
+Referenzen erscheinen im Live-Log des Gramplets.
+
+CustomGOVImport ist eine unabhängige Abspaltung des GetGOV-Gramplets mit eigener
+Plugin-ID und eigenen Einstellungen.
+
+### Funktionen
+
+- Importiert einen GOV-Ort und seine ausgehenden Beziehungen `isPartOf` und
+  `isLocatedIn`.
+- Verfolgt Beziehungen zu übergeordneten Orten auch dann weiter, wenn ein
+  dazwischenliegender Ort bereits in der Gramps-Datenbank vorhanden ist.
+- Kann nur den angeforderten Ort importieren und mit bereits vorhandenen
+  übergeordneten Orten verbinden.
+- Schließt konfigurierte Ortsarten vom Import aus und untersucht deren
+  Beziehungen zu übergeordneten Orten trotzdem weiter.
+- Zeigt den Importfortschritt und übersprungene Referenzen in einem Live-Log an.
+- Übernimmt die bevorzugte Ortssprache aus Gramps und berücksichtigt diese
+  Einstellung unabhängig von ihrer Groß- und Kleinschreibung.
+- Bietet übersetzte Datumsausdrücke und Oberflächentexte für Deutsch,
+  Kroatisch, Niederländisch, europäisches Portugiesisch und Slowakisch.
+
+### Verwendung
+
+Füge das Gramplet **CustomGOVImport** einer Gramps-Ansicht hinzu, gib eine
+GOV-Objekt-ID wie `object_12345` ein und wähle **Ort holen**.
+
+Aktiviere **Keine übergeordneten Orte importieren**, um nur das angeforderte
+Objekt zu importieren. Seine direkten Referenzen auf übergeordnete Orte werden
+weiterhin geprüft. Ist der referenzierte Ort bereits in Gramps vorhanden,
+wird eine Beziehung angelegt; andernfalls wird die fehlende Referenz im
+Live-Log gemeldet.
+
+### Konfiguration
+
+Öffne die Gramplet-Konfiguration und trage unter **Ortsarten, die nicht
+importiert werden sollen** eine GOV-Ortsart pro Zeile ein. Die Einträge müssen
+exakt mit der übersetzten GOV-Ortsart übereinstimmen; Groß- und Kleinschreibung
+werden dabei unterschieden. Leere Zeilen und doppelte Einträge werden beim
+Speichern der Einstellungen entfernt.
+
+Ist das angeforderte Objekt selbst ausgeschlossen, wird es nicht zu Gramps
+hinzugefügt. Bei einem normalen Import werden seine Beziehungen zu
+übergeordneten Orten trotzdem weiterverfolgt, damit zulässige übergeordnete
+Orte importiert werden können.
+
+Die Ausschlussliste (Blacklist) gilt gemeinsam für alle Instanzen des
+CustomGOVImport-Gramplets. Sie wird nur gespeichert, wenn in der Konfiguration
+die Schaltfläche **Speichern** verwendet wird.
+
+### Kompatibilität
+
+Die Erweiterung ist für Gramps 6.0 vorgesehen und benötigt Netzwerkzugriff auf
+`gov.genealogy.net`.
+
+### Herkunft und Lizenz
+
+CustomGOVImport basiert auf GetGOV 1.0.25 von Nick Hall und Gary Griffin aus dem
+[Gramps-Addons-Projekt](https://github.com/gramps-project/addons-source/tree/maintenance/gramps60/GetGOV).
+
+Copyright © 2015 Nick Hall
+
+Copyright © 2024 Gary Griffin
+
+Copyright © 2026 Sebastian Klossek
+
+Lizenziert unter der GNU General Public License, Version 2 oder höher.
+
+Die vollständige deutsche Plugin-Dokumentation steht in der
+[deutschen README zu CustomGOVImport](CustomGOVImport/README.de.md).
+
 ## Aktualisieren und Fehler suchen
 
 Wenn eine neue Version veröffentlicht wird, erkennt Gramps sie über dieselbe
@@ -85,9 +164,9 @@ Fehler und Vorschläge bitte über die
 [Issues](https://github.com/th3Bastian/gramps-place-addons/issues) dieses
 Repositorys melden.
 
-Jede Erweiterung dokumentiert ihr eigenes Urheberrecht und ihre Lizenz.
-Doppelte Ortsnamen unterdrücken steht unter GPL-2.0-or-later.
+Jede Erweiterung dokumentiert ihr eigenes Urheberrecht und ihre Lizenz. Beide
+Erweiterungen stehen unter GPL-2.0-or-later.
 
 ## Hinweis zur Entstehung
 
-Dieses Addon wurde mit Hilfe von ChatGPT erstellt.
+Diese Addons wurden mit Hilfe von ChatGPT entwickelt.

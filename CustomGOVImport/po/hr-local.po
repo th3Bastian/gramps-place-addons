@@ -1,0 +1,115 @@
+# CustomGOVImport translations reconstructed from the bundled addon.mo.
+# Original source comments and untranslated entries are not stored in .mo files.
+# Missing messages from the current plugin source are included untranslated.
+
+msgid ""
+msgstr "Project-Id-Version: Gramps 5.x\nReport-Msgid-Bugs-To: \nPO-Revision-Date: 2026-05-11 10:35+0000\nLast-Translator: Milo Ivir <mail@milotype.de>\nLanguage-Team: Croatian <https://hosted.weblate.org/projects/gramps-project/addons/hr/>\nLanguage: hr\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\nX-Generator: Weblate 2026.5-dev\n"
+
+#: CustomGOVImport.py:362
+msgid "Add GOV-id place %s"
+msgstr "Dodaj GOV-ID mjesto %s"
+
+#: CustomGOVImport.gpr.py:38 CustomGOVImport.gpr.py:50
+msgid "CustomGOVImport"
+msgstr ""
+
+#: CustomGOVImport.py:394
+msgid "CustomGOVImport error: %s"
+msgstr ""
+
+msgid "GOV error on id %s with code: "
+msgstr "GOV greška pri id-u %s s kodom: "
+
+#: CustomGOVImport.py:427
+msgid "GOV link"
+msgstr "Poveznica na GOV"
+
+#: CustomGOVImport.py:329
+msgid "Get Place"
+msgstr "Dohvati mjesto"
+
+msgid "GetGOV"
+msgstr "GetGOV"
+
+msgid "GetGOV error: %s"
+msgstr "Greška u dohvaćanju GOV-podataka: %s"
+
+#: CustomGOVImport.gpr.py:39
+msgid "Gramplet to get places from the GOV database"
+msgstr "Gramplet za dohvaćanje mjesta iz GOV baze podataka"
+
+#: CustomGOVImport.py:321
+msgid "Place ID to import from GOV (Historical Gazetteer):"
+msgstr "ID mjesta za uvoz iz GOV-a (povijesni imenik mjesta):"
+
+#: CustomGOVImport.py:458
+msgid "Do not import parent places"
+msgstr "Ne uvozi nadređena mjesta"
+
+#: CustomGOVImport.py:650
+msgid "Reference to %s not created because the place does not exist."
+msgstr "Referenca na %s nije stvorena jer mjesto ne postoji."
+
+#: CustomGOVImport.py:570
+msgid "from %s"
+msgstr "od %s"
+
+#: CustomGOVImport.py:572
+msgid "to %s"
+msgstr "do %s"
+
+msgctxt "end"
+msgid "from %(begin)s to %(end)s"
+msgstr "od %(begin)s do %(end)s"
+
+#: CustomGOVImport.py:568
+msgid "from %s to %s"
+msgstr ""
+
+msgid "Please enter a GOV ID."
+msgstr "Unesite GOV ID."
+
+msgid "Starting import: %s"
+msgstr "Pokretanje uvoza: %s"
+
+msgid "Import failed: %s"
+msgstr "Uvoz nije uspio: %s"
+
+msgid "Loading GOV place types..."
+msgstr "Učitavaju se vrste GOV mjesta..."
+
+msgid "Import stopped: no GOV place types available."
+msgstr "Uvoz je zaustavljen: nema dostupnih vrsta GOV mjesta."
+
+msgid "Place already exists: %s"
+msgstr "Mjesto već postoji: %s"
+
+msgid "Loading place: %s"
+msgstr "Učitavanje mjesta: %s"
+
+msgid "Place added: %s"
+msgstr "Mjesto dodano: %s"
+
+msgid "Saving place relationships..."
+msgstr "Spremanje veza između mjesta..."
+
+msgid "Import finished."
+msgstr "Uvoz je završen."
+
+msgid "GOV request failed: %s"
+msgstr "GOV zahtjev nije uspio: %s"
+
+msgid "No GOV data found: %s"
+msgstr "Nisu pronađeni GOV podaci: %s"
+
+msgid "No usable place data: %s"
+msgstr "Nema upotrebljivih podataka o mjestu: %s"
+
+msgid "Place types that should not be imported"
+msgstr "Vrste mjesta koje se ne trebaju uvoziti"
+
+msgid "Place skipped by blacklist: %s (%s)"
+msgstr "Mjesto preskočeno zbog crne liste: %s (%s)"
+
+msgid "References found: %s"
+msgstr "Pronađene reference: %s"

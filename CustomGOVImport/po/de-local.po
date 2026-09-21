@@ -1,0 +1,131 @@
+# CustomGOVImport translations reconstructed from the bundled addon.mo.
+# Original source comments and untranslated entries are not stored in .mo files.
+# Missing messages from the current plugin source are included untranslated.
+
+msgid ""
+msgstr "Project-Id-Version: de\nReport-Msgid-Bugs-To: \nPO-Revision-Date: 2026-05-11 10:34+0000\nLast-Translator: Mirko Leonhäuser <mirko@leonhaeuser.de>\nLanguage-Team: German <https://hosted.weblate.org/projects/gramps-project/addons/de/>\nLanguage: de\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 2026.5-dev\n"
+
+#: CustomGOVImport.py:362
+msgid "Add GOV-id place %s"
+msgstr "GOV-id Ort %s hinzufügen"
+
+#: CustomGOVImport.gpr.py:38 CustomGOVImport.gpr.py:50
+msgid "CustomGOVImport"
+msgstr "CustomGOVImport"
+
+#: CustomGOVImport.py:394
+msgid "CustomGOVImport error: %s"
+msgstr ""
+
+msgid "GOV error on id %s with code: "
+msgstr "GOV-Fehler bei ID %s mit Code: "
+
+#: CustomGOVImport.py:427
+msgid "GOV link"
+msgstr "GOV-Link"
+
+#: CustomGOVImport.py:329
+msgid "Get Place"
+msgstr "Ort holen"
+
+msgid "GetGOV"
+msgstr "GetGOV"
+
+msgid "GetGOV error: %s"
+msgstr "GetGOV-Fehler: %s"
+
+#: CustomGOVImport.gpr.py:39
+msgid "Gramplet to get places from the GOV database"
+msgstr "Gramplet zum Abrufen von Orten aus der GOV-Datenbank"
+
+#: CustomGOVImport.py:321
+msgid "Place ID to import from GOV (Historical Gazetteer):"
+msgstr "Orts-ID für den Import aus GOV (Geschichtliches Orts-Verzeichnis):"
+
+#: CustomGOVImport.py:458
+msgid "Do not import parent places"
+msgstr "Keine übergeordneten Orte importieren"
+
+#: CustomGOVImport.py:570
+msgid "from %s"
+msgstr "ab %s"
+
+#: CustomGOVImport.py:572
+msgid "to %s"
+msgstr "bis %s"
+
+msgctxt "end"
+msgid "from %(begin)s to %(end)s"
+msgstr "von %(begin)s bis %(end)s"
+
+#: CustomGOVImport.py:568
+msgid "from %s to %s"
+msgstr ""
+
+#: CustomGOVImport.py:376
+msgid "Please enter a GOV ID."
+msgstr "Bitte eine GOV-ID eingeben."
+
+#: CustomGOVImport.py:382
+msgid "Starting import: %s"
+msgstr "Import gestartet: %s"
+
+#: CustomGOVImport.py:385
+msgid "Import failed: %s"
+msgstr "Import fehlgeschlagen: %s"
+
+#: CustomGOVImport.py:406
+msgid "Loading GOV place types..."
+msgstr "GOV-Ortstypen werden geladen …"
+
+#: CustomGOVImport.py:409
+msgid "Import stopped: no GOV place types available."
+msgstr "Import abgebrochen: Keine GOV-Ortstypen verfügbar."
+
+#: CustomGOVImport.py:416
+msgid "Place already exists: %s"
+msgstr "Ort bereits vorhanden: %s"
+
+#: CustomGOVImport.py:419
+msgid "Loading place: %s"
+msgstr "Ort wird geladen: %s"
+
+#: CustomGOVImport.py:425
+msgid "Place added: %s"
+msgstr "Ort hinzugefügt: %s"
+
+#: CustomGOVImport.py:433
+msgid "Saving place relationships..."
+msgstr "Ortszuordnungen werden gespeichert …"
+
+#: CustomGOVImport.py:443
+msgid "Import finished."
+msgstr "Import abgeschlossen."
+
+#: CustomGOVImport.py:450
+msgid "GOV request failed: %s"
+msgstr "GOV-Abfrage fehlgeschlagen: %s"
+
+#: CustomGOVImport.py:501
+msgid "No GOV data found: %s"
+msgstr "Keine GOV-Daten gefunden: %s"
+
+#: CustomGOVImport.py:431
+msgid "No usable place data: %s"
+msgstr "Keine verwendbaren Ortsdaten: %s"
+
+#: CustomGOVImport.py:328 CustomGOVImport.py:378
+msgid "Place types that should not be imported"
+msgstr "Ortsarten, die nicht importiert werden sollen"
+
+#: CustomGOVImport.py:466
+msgid "Place skipped by blacklist: %s (%s)"
+msgstr "Ort durch Blacklist übersprungen: %s (%s)"
+
+#: CustomGOVImport.py:463
+msgid "References found: %s"
+msgstr "Gefundene Referenzen: %s"
+
+#: CustomGOVImport.py:650
+msgid "Reference to %s not created because the place does not exist."
+msgstr "Referenz zu %s nicht erzeugt, da Ort nicht vorhanden."

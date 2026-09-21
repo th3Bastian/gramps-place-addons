@@ -1,0 +1,55 @@
+# CustomGOVImport translations reconstructed from the bundled addon.mo.
+# Original source comments and untranslated entries are not stored in .mo files.
+# Missing messages from the current plugin source are included untranslated.
+
+msgid ""
+msgstr "Project-Id-Version: Gramps 3.3.1\nReport-Msgid-Bugs-To: \nPO-Revision-Date: 2025-03-24 10:31+0000\nLast-Translator: coolz daddy <coolzdaddy55@gmail.com>\nLanguage-Team: Japanese <https://hosted.weblate.org/projects/gramps-project/addons/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=0;\nX-Generator: Weblate 5.11-dev\nX-Poedit-Language: Japanese\nX-Poedit-Country: JAPAN\nX-Poedit-SourceCharset: utf-8\n"
+
+#: CustomGOVImport.py:362
+msgid "Add GOV-id place %s"
+msgstr "GOV-id 場所 %s を追加"
+
+#: CustomGOVImport.gpr.py:38 CustomGOVImport.gpr.py:50
+msgid "CustomGOVImport"
+msgstr ""
+
+#: CustomGOVImport.py:394
+msgid "CustomGOVImport error: %s"
+msgstr ""
+
+msgid "GOV error on id %s with code: "
+msgstr "コード付き ID %s で GOV エラー : "
+
+#: CustomGOVImport.py:427
+msgid "GOV link"
+msgstr ""
+
+#: CustomGOVImport.py:329
+msgid "Get Place"
+msgstr "場所を取得"
+
+msgid "GetGOV"
+msgstr "GetGOV"
+
+msgid "GetGOV error: %s"
+msgstr "GetGOV エラー : %s"
+
+#: CustomGOVImport.gpr.py:39
+msgid "Gramplet to get places from the GOV database"
+msgstr "GOVデータベースから場所を取得するためのGramplet"
+
+#: CustomGOVImport.py:321
+msgid "Place ID to import from GOV (Historical Gazetteer):"
+msgstr "GOV (Historical Gazetteer) からインポートする場所 ID :"
+
+#: CustomGOVImport.py:570
+msgid "after %s"
+msgstr "%s 以降"
+
+#: CustomGOVImport.py:572
+msgid "before %s"
+msgstr "%s 以前"
+
+#: CustomGOVImport.py:568
+msgid "from %s to %s"
+msgstr ""

@@ -1,0 +1,55 @@
+# CustomGOVImport translations reconstructed from the bundled addon.mo.
+# Original source comments and untranslated entries are not stored in .mo files.
+# Missing messages from the current plugin source are included untranslated.
+
+msgid ""
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: \nPO-Revision-Date: 2026-04-28 18:11+0000\nLast-Translator: Kaj Arne Mikkelsen <kmi@vgdata.dk>\nLanguage-Team: Danish <https://hosted.weblate.org/projects/gramps-project/addons/da/>\nLanguage: da\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.17.1-dev\n"
+
+#: CustomGOVImport.py:362
+msgid "Add GOV-id place %s"
+msgstr "Tilføj GOV-id sted %s"
+
+#: CustomGOVImport.gpr.py:38 CustomGOVImport.gpr.py:50
+msgid "CustomGOVImport"
+msgstr ""
+
+#: CustomGOVImport.py:394
+msgid "CustomGOVImport error: %s"
+msgstr ""
+
+msgid "GOV error on id %s with code: "
+msgstr "GOV fejl ved id %s med kode: "
+
+#: CustomGOVImport.py:427
+msgid "GOV link"
+msgstr ""
+
+#: CustomGOVImport.py:329
+msgid "Get Place"
+msgstr "Hent sted"
+
+msgid "GetGOV"
+msgstr "GetGOV"
+
+msgid "GetGOV error: %s"
+msgstr "GetGOV fejl: %s"
+
+#: CustomGOVImport.gpr.py:39
+msgid "Gramplet to get places from the GOV database"
+msgstr "Gramplet til at hente steder fra GOV databasen"
+
+#: CustomGOVImport.py:321
+msgid "Place ID to import from GOV (Historical Gazetteer):"
+msgstr "Sted ID til import fra GOV (Historical Gazetteer):"
+
+#: CustomGOVImport.py:570
+msgid "after %s"
+msgstr "efter %s"
+
+#: CustomGOVImport.py:572
+msgid "before %s"
+msgstr "før %s"
+
+#: CustomGOVImport.py:568
+msgid "from %s to %s"
+msgstr ""

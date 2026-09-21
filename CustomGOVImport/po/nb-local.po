@@ -1,0 +1,46 @@
+# CustomGOVImport translations reconstructed from the bundled addon.mo.
+# Original source comments and untranslated entries are not stored in .mo files.
+# Missing messages from the current plugin source are included untranslated.
+
+msgid ""
+msgstr "Project-Id-Version: nb\nReport-Msgid-Bugs-To: \nPO-Revision-Date: 2026-06-01 12:35+0000\nLast-Translator: Harald Herreros <h.herreros@proton.me>\nLanguage-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/gramps-project/addons/nb_NO/>\nLanguage: nb\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 2026.6\nGenerated-By: pygettext.py 1.4\n"
+
+#: CustomGOVImport.py:362
+msgid "Add GOV-id place %s"
+msgstr ""
+
+#: CustomGOVImport.gpr.py:38 CustomGOVImport.gpr.py:50
+msgid "CustomGOVImport"
+msgstr ""
+
+#: CustomGOVImport.py:394
+msgid "CustomGOVImport error: %s"
+msgstr ""
+
+#: CustomGOVImport.py:427
+msgid "GOV link"
+msgstr ""
+
+#: CustomGOVImport.py:329
+msgid "Get Place"
+msgstr "Hent sted"
+
+#: CustomGOVImport.gpr.py:39
+msgid "Gramplet to get places from the GOV database"
+msgstr ""
+
+#: CustomGOVImport.py:321
+msgid "Place ID to import from GOV (Historical Gazetteer):"
+msgstr ""
+
+#: CustomGOVImport.py:570
+msgid "after %s"
+msgstr ""
+
+#: CustomGOVImport.py:572
+msgid "before %s"
+msgstr ""
+
+#: CustomGOVImport.py:568
+msgid "from %s to %s"
+msgstr ""

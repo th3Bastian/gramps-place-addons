@@ -1,0 +1,115 @@
+# CustomGOVImport translations reconstructed from the bundled addon.mo.
+# Original source comments and untranslated entries are not stored in .mo files.
+# Missing messages from the current plugin source are included untranslated.
+
+msgid ""
+msgstr "Project-Id-Version: MediaMerge 5.x\nReport-Msgid-Bugs-To: \nPO-Revision-Date: 2026-05-11 10:34+0000\nLast-Translator: Stephan Paternotte <stephan@paternottes.net>\nLanguage-Team: Dutch <https://hosted.weblate.org/projects/gramps-project/addons/nl/>\nLanguage: nl\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 2026.5-dev\n"
+
+#: CustomGOVImport.py:362
+msgid "Add GOV-id place %s"
+msgstr "GOV-id plaats %s toevoegen"
+
+#: CustomGOVImport.gpr.py:38 CustomGOVImport.gpr.py:50
+msgid "CustomGOVImport"
+msgstr ""
+
+#: CustomGOVImport.py:394
+msgid "CustomGOVImport error: %s"
+msgstr ""
+
+msgid "GOV error on id %s with code: "
+msgstr "GOV-fout op id %s met code: "
+
+#: CustomGOVImport.py:427
+msgid "GOV link"
+msgstr "GOV-link"
+
+#: CustomGOVImport.py:329
+msgid "Get Place"
+msgstr "Krijg locatie"
+
+msgid "GetGOV"
+msgstr "KrijgGOV"
+
+msgid "GetGOV error: %s"
+msgstr "GetGOV-fout: %s"
+
+#: CustomGOVImport.gpr.py:39
+msgid "Gramplet to get places from the GOV database"
+msgstr "Gramplet om locaties uit de GOV-database te halen"
+
+#: CustomGOVImport.py:321
+msgid "Place ID to import from GOV (Historical Gazetteer):"
+msgstr "Plaats-ID om te importeren uit GOV (Historical Gazetteer):"
+
+#: CustomGOVImport.py:458
+msgid "Do not import parent places"
+msgstr "Geen bovenliggende plaatsen importeren"
+
+#: CustomGOVImport.py:650
+msgid "Reference to %s not created because the place does not exist."
+msgstr "Verwijzing naar %s niet aangemaakt, omdat de plaats niet bestaat."
+
+#: CustomGOVImport.py:570
+msgid "from %s"
+msgstr "van %s"
+
+#: CustomGOVImport.py:572
+msgid "to %s"
+msgstr "tot %s"
+
+msgctxt "end"
+msgid "from %(begin)s to %(end)s"
+msgstr "van %(begin)s tot %(end)s"
+
+#: CustomGOVImport.py:568
+msgid "from %s to %s"
+msgstr ""
+
+msgid "Please enter a GOV ID."
+msgstr "Voer een GOV-ID in."
+
+msgid "Starting import: %s"
+msgstr "Import gestart: %s"
+
+msgid "Import failed: %s"
+msgstr "Importeren mislukt: %s"
+
+msgid "Loading GOV place types..."
+msgstr "GOV-plaatstypen worden geladen..."
+
+msgid "Import stopped: no GOV place types available."
+msgstr "Import gestopt: geen GOV-plaatstypen beschikbaar."
+
+msgid "Place already exists: %s"
+msgstr "Plaats bestaat al: %s"
+
+msgid "Loading place: %s"
+msgstr "Plaats wordt geladen: %s"
+
+msgid "Place added: %s"
+msgstr "Plaats toegevoegd: %s"
+
+msgid "Saving place relationships..."
+msgstr "Plaatsrelaties worden opgeslagen..."
+
+msgid "Import finished."
+msgstr "Import voltooid."
+
+msgid "GOV request failed: %s"
+msgstr "GOV-aanvraag mislukt: %s"
+
+msgid "No GOV data found: %s"
+msgstr "Geen GOV-gegevens gevonden: %s"
+
+msgid "No usable place data: %s"
+msgstr "Geen bruikbare plaatsgegevens: %s"
+
+msgid "Place types that should not be imported"
+msgstr "Plaatssoorten die niet geïmporteerd moeten worden"
+
+msgid "Place skipped by blacklist: %s (%s)"
+msgstr "Plaats overgeslagen wegens zwarte lijst: %s (%s)"
+
+msgid "References found: %s"
+msgstr "Verwijzingen gevonden: %s"

@@ -9,6 +9,7 @@ Independent Gramps add-ons for working with places.
 | Add-on | Status | Purpose |
 | --- | --- | --- |
 | [Hide Duplicate Place Names](HideDuplicatePlaceNames/) | Stable for Gramps 6.0 | Combines immediately consecutive identical place names in event displays for configured place types. |
+| [CustomGOVImport](CustomGOVImport/) | Stable for Gramps 6.0 | Imports GOV places with configurable place-type exclusions, optional parent imports, and a live log. |
 
 ## Install through Gramps Addon Manager
 
@@ -50,6 +51,18 @@ the locality immediately below it often have the same name. This is correct,
 but it can make place displays difficult to read. This add-on is intended to
 make those hierarchies easier to scan without changing the underlying data.
 
+## CustomGOVImport
+
+CustomGOVImport imports places from the Geschichtliches Ortsverzeichnis (GOV)
+and follows their outgoing parent relationships. A configurable list excludes
+selected place types while traversal continues to eligible parent places. An
+optional mode imports only the requested place and links it to parent places
+that already exist in Gramps. Progress, exclusions, and missing references are
+shown in the Gramplet's live log.
+
+See the [CustomGOVImport documentation](CustomGOVImport/) for configuration and
+usage details.
+
 ## Updating and troubleshooting
 
 When a later version is published, Gramps can discover it through the same
@@ -76,9 +89,9 @@ Addon Manager. Releases are tested before being added to `dist`.
 Please report problems or suggestions through the repository's
 [Issues](https://github.com/th3Bastian/gramps-place-addons/issues).
 
-Each add-on documents its copyright and license. Hide Duplicate Place Names is
-licensed under GPL-2.0-or-later.
+Each add-on documents its copyright and license. Both add-ons are licensed
+under GPL-2.0-or-later.
 
 ## Acknowledgement
 
-This add-on was created with assistance from ChatGPT.
+These add-ons were developed with assistance from ChatGPT.
