@@ -113,3 +113,27 @@ msgstr "Miesto bolo preskočené podľa zoznamu vylúčených typov: %s (%s)"
 
 msgid "References found: %s"
 msgstr "Našli sa referencie: %s"
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Language read from place format: %s"
+msgstr "Jazyk načítaný z formátu miesta: %s"
+
+#: CustomGOVImport.py
+msgid "No language found in the selected place format."
+msgstr "Vo vybranom formáte miesta sa nenašiel žiadny jazyk."
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Invalid place format language: %s"
+msgstr "Neplatný jazyk formátu miesta: %s"
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Using fallback language: %s"
+msgstr "Použitý náhradný jazyk: %s"
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Place type %s: no translation in %s; using fallback language: %s"
+msgstr "Typ miesta %s: chýba preklad v jazyku %s; použitý náhradný jazyk: %s"

@@ -129,3 +129,27 @@ msgstr "Gefundene Referenzen: %s"
 #: CustomGOVImport.py:650
 msgid "Reference to %s not created because the place does not exist."
 msgstr "Referenz zu %s nicht erzeugt, da Ort nicht vorhanden."
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Language read from place format: %s"
+msgstr "Aus dem Ortsformat gelesene Sprache: %s"
+
+#: CustomGOVImport.py
+msgid "No language found in the selected place format."
+msgstr "Im ausgewählten Ortsformat wurde keine Sprache gefunden."
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Invalid place format language: %s"
+msgstr "Ungültige Sprache im Ortsformat: %s"
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Using fallback language: %s"
+msgstr "Verwendete Fallback-Sprache: %s"
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Place type %s: no translation in %s; using fallback language: %s"
+msgstr "Ortsart %s: Keine Übersetzung in %s; verwendete Fallback-Sprache: %s"

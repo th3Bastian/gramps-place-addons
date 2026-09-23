@@ -40,6 +40,7 @@ import urllib.parse
 import urllib.request
 import urllib.error
 import ssl
+import locale
 
 from xml.dom.minidom import parseString
 
@@ -419,7 +420,7 @@ class CustomGOVImport(Gramplet):
 
     @staticmethod
     def __clean_blacklist(values):
-        """Remove whitespace, empty lines and duplicate type names."""
+        """Clean type names and sort alphabetically for the current locale."""
         if isinstance(values, str):
             values = values.splitlines()
         cleaned = []
@@ -430,7 +431,7 @@ class CustomGOVImport(Gramplet):
                 if place_type and place_type not in seen:
                     cleaned.append(place_type)
                     seen.add(place_type)
-        return cleaned
+        return sorted(cleaned, key=lambda name: locale.strxfrm(name.casefold()))
 
     def __create_gui(self):
         """
@@ -553,15 +554,18 @@ class CustomGOVImport(Gramplet):
     def __import_places(self, gov_id):
         to_do = [gov_id]
         import_parent_places = not self.skip_parent_places.get_active()
-        try:
-            preferred_lang = config.get("preferences.place-lang")
-        except AttributeError:
-            fmt = config.get("preferences.place-format")
-            pf = _pd.get_formats()[fmt]
-            preferred_lang = pf.language
-        preferred_lang = preferred_lang.strip().lower()
+        fmt = config.get("preferences.place-format")
+        pf = _pd.get_formats()[fmt]
+        preferred_lang = (pf.language or "").strip().lower()
+        if preferred_lang:
+            self.__log(_("Language read from place format: %s") % preferred_lang)
+        else:
+            self.__log(_("No language found in the selected place format."))
         if len(preferred_lang) != 2:
+            if preferred_lang:
+                self.__log(_("Invalid place format language: %s") % preferred_lang)
             preferred_lang = "de"
+            self.__log(_("Using fallback language: %s") % preferred_lang)
         visited = {}
         self.blacklist = self.__clean_blacklist(
             CUSTOM_CONFIG.get("blacklist.types")
@@ -723,9 +727,8 @@ class CustomGOVImport(Gramplet):
                 else:
                     place.add_alternative_name(place_name)
         for element in top[0].getElementsByTagName("gov:hasType"):
-            curr_lang = place.get_name().get_language()
             place_type, place_type_name = self.__get_hastype(
-                element, curr_lang, type_dic, preferred_lang
+                element, type_dic, preferred_lang
             )
             place.set_type(place_type)
         for element in top[0].getElementsByTagName("gov:position"):
@@ -753,7 +756,7 @@ class CustomGOVImport(Gramplet):
             name.set_date_object(date)
         return name
 
-    def __get_hastype(self, element, curr_lang, type_dic, preferred_lang):
+    def __get_hastype(self, element, type_dic, preferred_lang):
         place_type = PlaceType()
         place_type_name = ""
         ptype = element.getElementsByTagName("gov:PropertyType")
@@ -762,9 +765,14 @@ class CustomGOVImport(Gramplet):
             if len(value):
                 type_url = value[0].attributes["rdf:resource"].value
                 type_code = type_url.split("#")[1]
-                for language in (curr_lang, preferred_lang, "de", "en"):
+                for language in (preferred_lang, "de", "en"):
                     if (type_code, language) in type_dic:
                         place_type_name = type_dic[type_code, language]
+                        if language != preferred_lang:
+                            self.__log(
+                                _("Place type %s: no translation in %s; using fallback language: %s")
+                                % (type_code, preferred_lang, language)
+                            )
                         break
                 if place_type_name:
                     place_type.set_from_xml_str(place_type_name)

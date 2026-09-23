@@ -40,7 +40,7 @@ register(
     description=_("Gramplet to get places from the GOV database"),
     status=STABLE,
     audience=EXPERT,
-    version="1.0.0",
+    version="1.1.0",
     gramps_target_version="6.0",
     fname="CustomGOVImport.py",
     gramplet="CustomGOVImport",

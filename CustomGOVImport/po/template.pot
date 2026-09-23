@@ -128,3 +128,27 @@ msgctxt "end"
 msgid "from %(begin)s to %(end)s"
 msgstr ""
 
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Language read from place format: %s"
+msgstr ""
+
+#: CustomGOVImport.py
+msgid "No language found in the selected place format."
+msgstr ""
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Invalid place format language: %s"
+msgstr ""
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Using fallback language: %s"
+msgstr ""
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Place type %s: no translation in %s; using fallback language: %s"
+msgstr ""

@@ -1,10 +1,19 @@
 # CustomGOVImport
 
-**[Deutsche Anleitung](README.de.md)**
-
 CustomGOVImport is a Gramps 6.0 Gramplet for importing places from the
 [Geschichtliches Ortsverzeichnis (GOV)](https://gov.genealogy.net/). It is an
 independent fork of the GetGOV Gramplet and uses its own plugin ID and settings.
+
+## Version 1.1.0
+
+- Sorts excluded place types alphabetically when loading and saving.
+- Reads the language directly from the selected Gramps place format; removes
+  the obsolete `preferences.place-lang` compatibility path.
+- Selects place-type translations in the format language, then German, then
+  English, independently of the imported place name's language.
+- Logs the format language, missing or invalid language settings, and fallback
+  languages. New messages are translated into German, Croatian, Dutch,
+  European Portuguese, and Slovak.
 
 ## Features
 
@@ -17,8 +26,9 @@ independent fork of the GetGOV Gramplet and uses its own plugin ID and settings.
 - excludes configured place types from import while continuing to inspect
   their parent relationships;
 - shows import progress and skipped references in a live log;
-- reads the preferred place language from Gramps and handles the setting
-  without regard to capitalization; and
+- reads the preferred place language directly from the selected Gramps place
+  format, ignoring capitalization; place types fall back to German, then
+  English when no label is available in that language; and
 - provides localized date expressions and interface text for German,
   Croatian, Dutch, European Portuguese, and Slovak.
 
@@ -37,7 +47,8 @@ is reported in the live log.
 Open the Gramplet configuration and enter one GOV place type per line under
 **Place types that should not be imported**. Matching is case-sensitive and
 must exactly match the localized GOV place type. Blank lines and duplicate
-entries are removed when the settings are saved.
+entries are removed when the settings are saved. The list is sorted
+alphabetically when loaded and saved, ignoring capitalization for sorting.
 
 When the requested object itself is excluded, it is not added to Gramps. In a
 normal import, its parent relationships are still followed so eligible parent

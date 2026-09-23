@@ -113,3 +113,27 @@ msgstr "Plaats overgeslagen wegens zwarte lijst: %s (%s)"
 
 msgid "References found: %s"
 msgstr "Verwijzingen gevonden: %s"
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Language read from place format: %s"
+msgstr "Taal uit de plaatsopmaak: %s"
+
+#: CustomGOVImport.py
+msgid "No language found in the selected place format."
+msgstr "Geen taal gevonden in de geselecteerde plaatsopmaak."
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Invalid place format language: %s"
+msgstr "Ongeldige taal in de plaatsopmaak: %s"
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Using fallback language: %s"
+msgstr "Gebruikte terugvaltaal: %s"
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Place type %s: no translation in %s; using fallback language: %s"
+msgstr "Plaatssoort %s: geen vertaling in %s; gebruikte terugvaltaal: %s"

@@ -113,3 +113,27 @@ msgstr "Mjesto preskočeno zbog crne liste: %s (%s)"
 
 msgid "References found: %s"
 msgstr "Pronađene reference: %s"
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Language read from place format: %s"
+msgstr "Jezik pročitan iz formata mjesta: %s"
+
+#: CustomGOVImport.py
+msgid "No language found in the selected place format."
+msgstr "U odabranom formatu mjesta nije pronađen jezik."
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Invalid place format language: %s"
+msgstr "Nevažeći jezik formata mjesta: %s"
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Using fallback language: %s"
+msgstr "Koristi se zamjenski jezik: %s"
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Place type %s: no translation in %s; using fallback language: %s"
+msgstr "Vrsta mjesta %s: nema prijevoda na jeziku %s; koristi se zamjenski jezik: %s"

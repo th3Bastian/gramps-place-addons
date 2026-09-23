@@ -113,3 +113,27 @@ msgstr "Local ignorado pela lista negra: %s (%s)"
 
 msgid "References found: %s"
 msgstr "Referências encontradas: %s"
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Language read from place format: %s"
+msgstr "Idioma lido do formato de local: %s"
+
+#: CustomGOVImport.py
+msgid "No language found in the selected place format."
+msgstr "Não foi encontrado nenhum idioma no formato de local selecionado."
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Invalid place format language: %s"
+msgstr "Idioma inválido no formato de local: %s"
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Using fallback language: %s"
+msgstr "Idioma alternativo utilizado: %s"
+
+#: CustomGOVImport.py
+#, python-format
+msgid "Place type %s: no translation in %s; using fallback language: %s"
+msgstr "Tipo de local %s: sem tradução em %s; idioma alternativo utilizado: %s"

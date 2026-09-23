@@ -7,6 +7,17 @@ CustomGOVImport ist ein Gramplet für Gramps 6.0 zum Importieren von Orten aus d
 unabhängige Abspaltung des GetGOV-Gramplets und verwendet eine eigene Plugin-ID
 und eigene Einstellungen.
 
+## Version 1.1.0
+
+- Sortiert ausgeschlossene Ortsarten beim Laden und Speichern alphabetisch.
+- Liest die Sprache direkt aus dem ausgewählten Gramps-Ortsformat; der alte
+  Zugriff auf `preferences.place-lang` entfällt.
+- Wählt Ortsartenbezeichnungen in der Ortsformatsprache, ersatzweise auf Deutsch
+  und danach auf Englisch, unabhängig von der Sprache des importierten Ortsnamens.
+- Protokolliert die Ortsformatsprache, fehlende oder ungültige Spracheinstellungen
+  und verwendete Fallback-Sprachen. Die neuen Meldungen sind auf Deutsch,
+  Kroatisch, Niederländisch, europäischem Portugiesisch und Slowakisch verfügbar.
+
 ## Funktionen
 
 - Importiert einen GOV-Ort und seine ausgehenden Beziehungen `isPartOf` und
@@ -18,7 +29,7 @@ und eigene Einstellungen.
 - Schließt konfigurierte Ortsarten vom Import aus und untersucht deren
   Beziehungen zu übergeordneten Orten trotzdem weiter.
 - Zeigt den Importfortschritt und übersprungene Referenzen in einem Live-Log an.
-- Übernimmt die bevorzugte Ortssprache aus Gramps und berücksichtigt diese
+- Übernimmt die bevorzugte Ortssprache aus dem ausgewählten Gramps-Ortsformat und berücksichtigt diese
   Einstellung unabhängig von ihrer Groß- und Kleinschreibung.
 - Bietet übersetzte Datumsausdrücke und Oberflächentexte für Deutsch,
   Kroatisch, Niederländisch, europäisches Portugiesisch und Slowakisch.
@@ -40,7 +51,9 @@ Live-Log gemeldet.
 importiert werden sollen** eine GOV-Ortsart pro Zeile ein. Die Einträge müssen
 exakt mit der übersetzten GOV-Ortsart übereinstimmen; Groß- und Kleinschreibung
 werden dabei unterschieden. Leere Zeilen und doppelte Einträge werden beim
-Speichern der Einstellungen entfernt.
+Speichern der Einstellungen entfernt. Die Liste wird beim Laden und Speichern
+alphabetisch sortiert; Groß- und Kleinschreibung spielen für die Sortierung
+keine Rolle.
 
 Ist das angeforderte Objekt selbst ausgeschlossen, wird es nicht zu Gramps
 hinzugefügt. Bei einem normalen Import werden seine Beziehungen zu
