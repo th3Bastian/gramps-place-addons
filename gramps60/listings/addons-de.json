@@ -15,7 +15,7 @@
     "i": "CustomGOVImport",
     "t": 10,
     "d": "Gramplet zum Abrufen von Orten aus der GOV-Datenbank",
-    "v": "1.0.0",
+    "v": "1.1.0",
     "g": "6.0",
     "s": 3,
     "a": 1,
