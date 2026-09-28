@@ -50,14 +50,6 @@ msgstr "Ne uvozi nadređena mjesta"
 msgid "Reference to %s not created because the place does not exist."
 msgstr "Referenca na %s nije stvorena jer mjesto ne postoji."
 
-#: CustomGOVImport.py:570
-msgid "from %s"
-msgstr "od %s"
-
-#: CustomGOVImport.py:572
-msgid "to %s"
-msgstr "do %s"
-
 msgctxt "end"
 msgid "from %(begin)s to %(end)s"
 msgstr "od %(begin)s do %(end)s"
@@ -137,3 +129,18 @@ msgstr "Koristi se zamjenski jezik: %s"
 #, python-format
 msgid "Place type %s: no translation in %s; using fallback language: %s"
 msgstr "Vrsta mjesta %s: nema prijevoda na jeziku %s; koristi se zamjenski jezik: %s"
+
+msgid "Sort place relationships by date"
+msgstr "Poredaj pripadnosti mjesta po datumu"
+
+msgid "Update existing places with GOV data"
+msgstr "Ažuriraj postojeća mjesta podacima iz GOV-a"
+
+msgid "Update names, place types, coordinates and internet addresses from GOV. Remove relationships missing from GOV only if the parent place ID is confirmed by GOV. Other relationships are preserved."
+msgstr "Ažuriraj nazive, vrste mjesta, koordinate i internetske adrese podacima iz GOV-a. Ukloni pripadnosti koje više nisu u GOV-u samo ako GOV potvrdi ID nadređenog mjesta. Ostale pripadnosti ostaju sačuvane."
+
+msgid "Import only the requested place. Link it to parent places only if they already exist in Gramps."
+msgstr "Uvezi samo traženo mjesto. Poveži ga s nadređenim mjestima samo ako već postoje u Grampsu."
+
+msgid "Sort all place relationships by date or the start of the period, including existing relationships. For equal dates: before, exact date or period, then after. Undated relationships come last."
+msgstr "Poredaj sve pripadnosti mjesta po datumu ili početku razdoblja, uključujući postojeće pripadnosti. Za jednake datume: prije, točan datum ili razdoblje, zatim poslije. Pripadnosti bez datuma dolaze na kraj."

@@ -50,14 +50,6 @@ msgstr "Não importar locais hierarquicamente superiores"
 msgid "Reference to %s not created because the place does not exist."
 msgstr "A referência a %s não foi criada porque o local não existe."
 
-#: CustomGOVImport.py:570
-msgid "from %s"
-msgstr "de %s"
-
-#: CustomGOVImport.py:572
-msgid "to %s"
-msgstr "até %s"
-
 msgctxt "end"
 msgid "from %(begin)s to %(end)s"
 msgstr "de %(begin)s a %(end)s"
@@ -137,3 +129,18 @@ msgstr "Idioma alternativo utilizado: %s"
 #, python-format
 msgid "Place type %s: no translation in %s; using fallback language: %s"
 msgstr "Tipo de local %s: sem tradução em %s; idioma alternativo utilizado: %s"
+
+msgid "Sort place relationships by date"
+msgstr "Ordenar relações entre locais por data"
+
+msgid "Update existing places with GOV data"
+msgstr "Atualizar locais existentes com dados do GOV"
+
+msgid "Update names, place types, coordinates and internet addresses from GOV. Remove relationships missing from GOV only if the parent place ID is confirmed by GOV. Other relationships are preserved."
+msgstr "Atualizar nomes, tipos de local, coordenadas e endereços da Internet com dados do GOV. Remover relações ausentes do GOV apenas se o GOV confirmar o ID do local superior. As outras relações são mantidas."
+
+msgid "Import only the requested place. Link it to parent places only if they already exist in Gramps."
+msgstr "Importar apenas o local solicitado. Criar relações com locais superiores apenas se estes já existirem no Gramps."
+
+msgid "Sort all place relationships by date or the start of the period, including existing relationships. For equal dates: before, exact date or period, then after. Undated relationships come last."
+msgstr "Ordenar todas as relações entre locais por data ou início do período, incluindo as relações existentes. Para datas iguais: antes, data exata ou período, depois. As relações sem data ficam no fim."

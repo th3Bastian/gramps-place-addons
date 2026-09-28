@@ -46,14 +46,6 @@ msgstr "Orts-ID für den Import aus GOV (Geschichtliches Orts-Verzeichnis):"
 msgid "Do not import parent places"
 msgstr "Keine übergeordneten Orte importieren"
 
-#: CustomGOVImport.py:570
-msgid "from %s"
-msgstr "ab %s"
-
-#: CustomGOVImport.py:572
-msgid "to %s"
-msgstr "bis %s"
-
 msgctxt "end"
 msgid "from %(begin)s to %(end)s"
 msgstr "von %(begin)s bis %(end)s"
@@ -153,3 +145,18 @@ msgstr "Verwendete Fallback-Sprache: %s"
 #, python-format
 msgid "Place type %s: no translation in %s; using fallback language: %s"
 msgstr "Ortsart %s: Keine Übersetzung in %s; verwendete Fallback-Sprache: %s"
+
+msgid "Sort place relationships by date"
+msgstr "Ortszugehörigkeiten nach Datum sortieren"
+
+msgid "Update existing places with GOV data"
+msgstr "Vorhandene Orte mit GOV-Daten aktualisieren"
+
+msgid "Update names, place types, coordinates and internet addresses from GOV. Remove relationships missing from GOV only if the parent place ID is confirmed by GOV. Other relationships are preserved."
+msgstr "Namen, Ortsarten, Koordinaten und Internetadressen mit GOV-Daten aktualisieren. Nicht mehr in GOV vorhandene Zugehörigkeiten nur entfernen, wenn die ID des übergeordneten Ortes durch GOV bestätigt ist. Andere Zugehörigkeiten bleiben erhalten."
+
+msgid "Import only the requested place. Link it to parent places only if they already exist in Gramps."
+msgstr "Nur den angeforderten Ort importieren. Zugehörigkeiten zu übergeordneten Orten nur anlegen, wenn diese bereits in Gramps vorhanden sind."
+
+msgid "Sort all place relationships by date or the start of the period, including existing relationships. For equal dates: before, exact date or period, then after. Undated relationships come last."
+msgstr "Alle Ortszugehörigkeiten nach Datum beziehungsweise Beginn des Zeitraums sortieren, einschließlich vorhandener Zuordnungen. Bei gleichem Datum: vor, genaues Datum oder Zeitraum, danach nach. Undatierte Zugehörigkeiten stehen am Ende."

@@ -115,14 +115,6 @@ msgstr ""
 msgid "Starting import: %s"
 msgstr ""
 
-#: CustomGOVImport.py:843
-msgid "from %s"
-msgstr ""
-
-#: CustomGOVImport.py:845
-msgid "to %s"
-msgstr ""
-
 #: CustomGOVImport.py:839
 msgctxt "end"
 msgid "from %(begin)s to %(end)s"
@@ -151,4 +143,19 @@ msgstr ""
 #: CustomGOVImport.py
 #, python-format
 msgid "Place type %s: no translation in %s; using fallback language: %s"
+msgstr ""
+
+msgid "Sort place relationships by date"
+msgstr ""
+
+msgid "Update existing places with GOV data"
+msgstr ""
+
+msgid "Update names, place types, coordinates and internet addresses from GOV. Remove relationships missing from GOV only if the parent place ID is confirmed by GOV. Other relationships are preserved."
+msgstr ""
+
+msgid "Import only the requested place. Link it to parent places only if they already exist in Gramps."
+msgstr ""
+
+msgid "Sort all place relationships by date or the start of the period, including existing relationships. For equal dates: before, exact date or period, then after. Undated relationships come last."
 msgstr ""

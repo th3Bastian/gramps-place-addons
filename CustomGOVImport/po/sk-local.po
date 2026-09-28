@@ -50,14 +50,6 @@ msgstr "Neimportovať nadradené miesta"
 msgid "Reference to %s not created because the place does not exist."
 msgstr "Odkaz na %s nebol vytvorený, pretože miesto neexistuje."
 
-#: CustomGOVImport.py:570
-msgid "from %s"
-msgstr "od %s"
-
-#: CustomGOVImport.py:572
-msgid "to %s"
-msgstr "do %s"
-
 msgctxt "end"
 msgid "from %(begin)s to %(end)s"
 msgstr "od %(begin)s do %(end)s"
@@ -137,3 +129,18 @@ msgstr "Použitý náhradný jazyk: %s"
 #, python-format
 msgid "Place type %s: no translation in %s; using fallback language: %s"
 msgstr "Typ miesta %s: chýba preklad v jazyku %s; použitý náhradný jazyk: %s"
+
+msgid "Sort place relationships by date"
+msgstr "Zoradiť vzťahy medzi miestami podľa dátumu"
+
+msgid "Update existing places with GOV data"
+msgstr "Aktualizovať existujúce miesta údajmi z GOV"
+
+msgid "Update names, place types, coordinates and internet addresses from GOV. Remove relationships missing from GOV only if the parent place ID is confirmed by GOV. Other relationships are preserved."
+msgstr "Aktualizovať názvy, typy miest, súradnice a internetové adresy údajmi z GOV. Odstrániť vzťahy, ktoré už v GOV nie sú, iba ak GOV potvrdí ID nadradeného miesta. Ostatné vzťahy sa zachovajú."
+
+msgid "Import only the requested place. Link it to parent places only if they already exist in Gramps."
+msgstr "Importovať iba požadované miesto. Vytvoriť vzťahy k nadradeným miestam iba vtedy, ak už existujú v Gramps."
+
+msgid "Sort all place relationships by date or the start of the period, including existing relationships. For equal dates: before, exact date or period, then after. Undated relationships come last."
+msgstr "Zoradiť všetky vzťahy medzi miestami podľa dátumu alebo začiatku obdobia vrátane existujúcich vzťahov. Pri rovnakých dátumoch: pred, presný dátum alebo obdobie, potom po. Vzťahy bez dátumu budú na konci."

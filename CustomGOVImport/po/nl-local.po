@@ -50,14 +50,6 @@ msgstr "Geen bovenliggende plaatsen importeren"
 msgid "Reference to %s not created because the place does not exist."
 msgstr "Verwijzing naar %s niet aangemaakt, omdat de plaats niet bestaat."
 
-#: CustomGOVImport.py:570
-msgid "from %s"
-msgstr "van %s"
-
-#: CustomGOVImport.py:572
-msgid "to %s"
-msgstr "tot %s"
-
 msgctxt "end"
 msgid "from %(begin)s to %(end)s"
 msgstr "van %(begin)s tot %(end)s"
@@ -137,3 +129,18 @@ msgstr "Gebruikte terugvaltaal: %s"
 #, python-format
 msgid "Place type %s: no translation in %s; using fallback language: %s"
 msgstr "Plaatssoort %s: geen vertaling in %s; gebruikte terugvaltaal: %s"
+
+msgid "Sort place relationships by date"
+msgstr "Plaatsrelaties op datum sorteren"
+
+msgid "Update existing places with GOV data"
+msgstr "Bestaande plaatsen bijwerken met GOV-gegevens"
+
+msgid "Update names, place types, coordinates and internet addresses from GOV. Remove relationships missing from GOV only if the parent place ID is confirmed by GOV. Other relationships are preserved."
+msgstr "Namen, plaatstypen, coördinaten en internetadressen bijwerken met GOV-gegevens. Ontbrekende relaties alleen verwijderen als GOV het ID van de bovenliggende plaats bevestigt. Andere relaties blijven behouden."
+
+msgid "Import only the requested place. Link it to parent places only if they already exist in Gramps."
+msgstr "Alleen de gevraagde plaats importeren. Alleen relaties met bovenliggende plaatsen aanmaken als deze al in Gramps bestaan."
+
+msgid "Sort all place relationships by date or the start of the period, including existing relationships. For equal dates: before, exact date or period, then after. Undated relationships come last."
+msgstr "Alle plaatsrelaties sorteren op datum of begin van de periode, inclusief bestaande relaties. Bij gelijke datums: vóór, exacte datum of periode, daarna na. Relaties zonder datum komen als laatste."

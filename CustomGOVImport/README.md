@@ -1,8 +1,29 @@
 # CustomGOVImport
 
+**[Deutsche Anleitung](README.de.md)**
+
 CustomGOVImport is a Gramps 6.0 Gramplet for importing places from the
 [Geschichtliches Ortsverzeichnis (GOV)](https://gov.genealogy.net/). It is an
 independent fork of the GetGOV Gramplet and uses its own plugin ID and settings.
+
+## Version 1.2.0
+
+- Adds optional chronological sorting of place relationships, including existing
+  references. For equal dates: before, exact date or span, then after. Undated
+  references come last; calculation limits are not used.
+- Adds optional updating of existing places from GOV, including the primary name,
+  supplied place type and coordinates, URLs, and missing alternative names.
+- Removes obsolete relationships only in update mode and only when the parent
+  place's Gramps ID is confirmed by GOV. Unverified or non-GOV relationships
+  remain; failed source requests never trigger removal.
+- Imports open dates as before/after, preserving the date values. Closed spans
+  remain from/to. GOV's uncertainty within a year or month is not fully represented
+  by Gramps' boundary calculations; this is an accepted limitation.
+- Corrects legacy from/to dates only for relationships matching the target and
+  period in the current GOV response. Duplicate detection ignores input spelling
+  for structured dates; unrelated relationships and their dates remain unchanged.
+- Adds tooltips for all three checkboxes and updates German, Croatian, Dutch,
+  European Portuguese and Slovak translations. Both new options default to off.
 
 ## Version 1.1.0
 
@@ -41,6 +62,31 @@ Enable **Do not import parent places** to import only the requested object. Its
 direct parent references are still inspected. A relationship is created when
 the referenced place already exists in Gramps; otherwise the missing reference
 is reported in the live log.
+
+Enable **Update existing places with GOV data** to refresh the primary name,
+place type and coordinates when supplied by GOV, and replace the URL list with
+GOV URLs. Missing alternative names are added; existing alternative names,
+notes and other unrelated record data are retained. The checkbox is off by
+default.
+
+With updating enabled, relationships absent from the current GOV response are
+removed only when the parent place's Gramps ID is confirmed as a GOV object.
+Relationships to other or unverified IDs remain unchanged. Failed source
+requests do not update the place; failed ID checks never authorize removal.
+Without updating, missing relationships are added without removing obsolete
+ones. The legacy date correction described below applies in either mode.
+
+Enable **Sort place relationships by date** to sort relationships during import.
+The checkbox is off by default. When enabled, the complete reference list of the
+place (including existing references) is sorted by the stated date or the start
+of a span. For equal dates, before references precede spans and exact dates,
+followed by after references. Undated references and text-only dates come last.
+Equal sort keys retain their previous order. Calculation limits are not used.
+
+Legacy open dates (from/to) are converted to after/before only when the target
+place and period match a relationship in the current GOV response. Duplicate
+cleanup is also limited to matching GOV relationships. Other existing
+relationships retain their dates and are preserved, even if duplicated.
 
 ## Configuration
 

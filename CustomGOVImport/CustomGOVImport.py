@@ -43,6 +43,7 @@ import ssl
 import locale
 
 from xml.dom.minidom import parseString
+from xml.parsers.expat import ExpatError
 
 # ------------------------------------------------------------------------
 #
@@ -59,7 +60,7 @@ from gi.repository import GLib, Gtk, Pango
 from gramps.gen.plug import Gramplet
 from gramps.gen.plug.menu import TextOption
 from gramps.gen.db import DbTxn
-from gramps.gen.lib import Place, PlaceName, PlaceType, PlaceRef, Url, UrlType
+from gramps.gen.lib import Date, Place, PlaceName, PlaceType, PlaceRef, Url, UrlType
 from gramps.gen.datehandler import parser
 from gramps.gen.config import config
 from gramps.gen.display.place import displayer as _pd
@@ -455,9 +456,45 @@ class CustomGOVImport(Gramplet):
         self.skip_parent_places = Gtk.CheckButton(
             label=_("Do not import parent places")
         )
+        self.skip_parent_places.set_tooltip_text(_(
+            "Import only the requested place. Link it to parent places only if "
+            "they already exist in Gramps."
+        ))
         self.skip_parent_places.set_hexpand(True)
         self.skip_parent_places.set_halign(Gtk.Align.FILL)
         checkbox_label = self.skip_parent_places.get_child()
+        if isinstance(checkbox_label, Gtk.Label):
+            checkbox_label.set_xalign(0.0)
+            checkbox_label.set_line_wrap(True)
+            checkbox_label.set_line_wrap_mode(Pango.WrapMode.WORD_CHAR)
+
+        self.update_existing_places = Gtk.CheckButton(
+            label=_("Update existing places with GOV data")
+        )
+        self.update_existing_places.set_tooltip_text(_(
+            "Update names, place types, coordinates and internet addresses from GOV. "
+            "Remove relationships missing from GOV only if the parent place ID is "
+            "confirmed by GOV. Other relationships are preserved."
+        ))
+        self.update_existing_places.set_hexpand(True)
+        self.update_existing_places.set_halign(Gtk.Align.FILL)
+        checkbox_label = self.update_existing_places.get_child()
+        if isinstance(checkbox_label, Gtk.Label):
+            checkbox_label.set_xalign(0.0)
+            checkbox_label.set_line_wrap(True)
+            checkbox_label.set_line_wrap_mode(Pango.WrapMode.WORD_CHAR)
+
+        self.sort_place_references = Gtk.CheckButton(
+            label=_("Sort place relationships by date")
+        )
+        self.sort_place_references.set_tooltip_text(_(
+            "Sort all place relationships by date or the start of the period, "
+            "including existing relationships. For equal dates: before, exact "
+            "date or period, then after. Undated relationships come last."
+        ))
+        self.sort_place_references.set_hexpand(True)
+        self.sort_place_references.set_halign(Gtk.Align.FILL)
+        checkbox_label = self.sort_place_references.get_child()
         if isinstance(checkbox_label, Gtk.Label):
             checkbox_label.set_xalign(0.0)
             checkbox_label.set_line_wrap(True)
@@ -495,6 +532,8 @@ class CustomGOVImport(Gramplet):
         vbox.pack_start(label, False, True, 0)
         vbox.pack_start(self.entry, False, True, 0)
         vbox.pack_start(self.skip_parent_places, False, True, 0)
+        vbox.pack_start(self.update_existing_places, False, True, 0)
+        vbox.pack_start(self.sort_place_references, False, True, 0)
         vbox.pack_start(button_box, False, True, 0)
         vbox.pack_start(log_scroll, True, True, 0)
 
@@ -539,6 +578,8 @@ class CustomGOVImport(Gramplet):
         self.get_button.set_sensitive(False)
         self.entry.set_sensitive(False)
         self.skip_parent_places.set_sensitive(False)
+        self.sort_place_references.set_sensitive(False)
+        self.update_existing_places.set_sensitive(False)
         try:
             self.__log(_("Starting import: %s") % gov_id)
             self.__import_places(gov_id)
@@ -550,10 +591,15 @@ class CustomGOVImport(Gramplet):
             self.get_button.set_sensitive(True)
             self.entry.set_sensitive(True)
             self.skip_parent_places.set_sensitive(True)
+            self.sort_place_references.set_sensitive(True)
+            self.update_existing_places.set_sensitive(True)
 
     def __import_places(self, gov_id):
         to_do = [gov_id]
         import_parent_places = not self.skip_parent_places.get_active()
+        sort_references = self.sort_place_references.get_active()
+        update_existing = self.update_existing_places.get_active()
+        self._gov_id_checks = {}
         fmt = config.get("preferences.place-format")
         pf = _pd.get_formats()[fmt]
         preferred_lang = (pf.language or "").strip().lower()
@@ -587,6 +633,13 @@ class CustomGOVImport(Gramplet):
                     _fetched_place, ref_list, _place_type_name = self.__get_place(
                         gov_id, self.type_dic, preferred_lang
                     )
+                    if ref_list is None:
+                        # An unsuccessful request must never trigger deletion.
+                        visited[gov_id] = (None, [])
+                        continue
+                    if update_existing:
+                        self.__update_place_values(place, _fetched_place, _place_type_name)
+                        self.dbstate.db.commit_place(place, trans)
                     self.__log(_("References found: %s") % len(ref_list))
                     if import_parent_places:
                         for ref, date in ref_list:
@@ -598,6 +651,8 @@ class CustomGOVImport(Gramplet):
                     place, ref_list, place_type_name = self.__get_place(
                         gov_id, self.type_dic, preferred_lang
                     )
+                    if ref_list is None:
+                        raise ValueError(_("No usable place data: %s") % gov_id)
                     self.__log(_("References found: %s") % len(ref_list))
                     if place.get_name().get_value() != "":
                         if import_parent_places:
@@ -619,8 +674,45 @@ class CustomGOVImport(Gramplet):
 
             self.__log(_("Saving place relationships..."))
             for place, ref_list in visited.values():
-                if place is not None and len(ref_list) > 0:
+                if place is not None:
                     place_changed = False
+                    gov_reference_keys = set()
+                    for ref, date in ref_list:
+                        target = self.dbstate.db.get_place_from_gramps_id(ref)
+                        if target is not None:
+                            gov_reference = PlaceRef()
+                            gov_reference.ref = target.handle
+                            gov_reference.set_date_object(date)
+                            gov_reference_keys.add(
+                                self.__reference_identity(gov_reference, True)
+                            )
+                    # Only normalize dates whose target and period occur in GOV.
+                    for existing_ref in place.get_placeref_list():
+                        if self.__reference_identity(existing_ref, True) not in (
+                            gov_reference_keys
+                        ):
+                            continue
+                        existing_date = existing_ref.get_date_object()
+                        modifier = existing_date.get_modifier()
+                        if modifier == Date.MOD_TO:
+                            existing_date.set_modifier(Date.MOD_BEFORE)
+                        elif modifier == Date.MOD_FROM:
+                            existing_date.set_modifier(Date.MOD_AFTER)
+                        else:
+                            continue
+                        existing_ref.set_date_object(existing_date)
+                        place_changed = True
+                    reference_keys = set()
+                    unique_references = []
+                    for existing_ref in place.get_placeref_list():
+                        key = self.__reference_identity(existing_ref)
+                        if key in gov_reference_keys and key in reference_keys:
+                            place_changed = True
+                            continue
+                        reference_keys.add(key)
+                        unique_references.append(existing_ref)
+                    if len(unique_references) != len(place.get_placeref_list()):
+                        place.set_placeref_list(unique_references)
                     for ref, date in ref_list:
                         target = visited.get(ref)
                         if target is None and not import_parent_places:
@@ -643,16 +735,110 @@ class CustomGOVImport(Gramplet):
                         place_ref = PlaceRef()
                         place_ref.ref = handle
                         place_ref.set_date_object(date)
-                        if any(
-                            existing_ref.is_equal(place_ref)
-                            for existing_ref in place.get_placeref_list()
-                        ):
+                        key = self.__reference_identity(place_ref)
+                        if key in reference_keys:
                             continue
                         place.add_placeref(place_ref)
+                        reference_keys.add(key)
                         place_changed = True
+                    if update_existing:
+                        retained = []
+                        for reference in place.get_placeref_list():
+                            if self.__reference_identity(reference, True) not in gov_reference_keys:
+                                target = self.dbstate.db.get_place_from_handle(reference.ref)
+                                if target is not None and self.__is_gov_id(target.gramps_id):
+                                    place_changed = True
+                                    continue
+                            retained.append(reference)
+                        if len(retained) != len(place.get_placeref_list()):
+                            place.set_placeref_list(retained)
+                    if sort_references:
+                        references = place.get_placeref_list()
+                        sorted_references = sorted(
+                            references, key=self.__reference_date_sort_key
+                        )
+                        if any(
+                            old is not new
+                            for old, new in zip(references, sorted_references)
+                        ):
+                            place.set_placeref_list(sorted_references)
+                            place_changed = True
                     if place_changed:
                         self.dbstate.db.commit_place(place, trans)
         self.__log(_("Import finished."))
+
+    @staticmethod
+    def __update_place_values(place, fetched, type_name):
+        """Refresh supplied GOV values; keep unrelated record data."""
+        if fetched.get_name().get_value():
+            place.set_name(fetched.get_name())
+        if type_name:
+            place.set_type(fetched.get_type())
+        if fetched.get_latitude():
+            place.set_latitude(fetched.get_latitude())
+        if fetched.get_longitude():
+            place.set_longitude(fetched.get_longitude())
+        place.set_url_list(fetched.get_url_list())
+        for name in fetched.get_alternative_names():
+            if not any(existing.is_equal(name) for existing in place.get_all_names()):
+                place.add_alternative_name(name)
+
+    def __is_gov_id(self, gov_id):
+        """Only a successful object lookup authorizes removing a relationship."""
+        if not gov_id:
+            return False
+        if gov_id in self._gov_id_checks:
+            return self._gov_id_checks[gov_id]
+        confirmed = False
+        try:
+            url = "https://gov.genealogy.net/semanticWeb/about/" + urllib.parse.quote(
+                gov_id, safe=""
+            )
+            with urllib.request.urlopen(url, context=self._scontext, timeout=20) as response:
+                dom = parseString(response.read())
+            for obj in dom.getElementsByTagNameNS(GOV_NAMESPACE, "GovObject"):
+                about = urllib.parse.urlparse(obj.getAttributeNS(RDF_NAMESPACE, "about"))
+                if (about.hostname == "gov.genealogy.net"
+                        and about.path.rstrip("/").rsplit("/", 1)[-1] == gov_id):
+                    confirmed = True
+                    break
+        except (urllib.error.URLError, OSError, ValueError, ExpatError):
+            # Unknown IDs and request failures preserve the user's reference.
+            pass
+        self._gov_id_checks[gov_id] = confirmed
+        return confirmed
+
+    @staticmethod
+    def __reference_identity(reference, normalize_open_dates=False):
+        """Ignore input spelling for structured dates, retain text-only dates."""
+        date = reference.get_date_object()
+        if normalize_open_dates:
+            # Compare legacy dates without modifying the stored reference.
+            date = Date(date)
+            if date.get_modifier() == Date.MOD_TO:
+                date.set_modifier(Date.MOD_BEFORE)
+            elif date.get_modifier() == Date.MOD_FROM:
+                date.set_modifier(Date.MOD_AFTER)
+        return (
+            reference.ref,
+            date.serialize(no_text_date=date.get_modifier() != Date.MOD_TEXTONLY),
+        )
+
+    @staticmethod
+    def __reference_date_sort_key(reference):
+        """Sort by stated date, then before/span/after; undated refs last."""
+        date = reference.get_date_object()
+        sort_value = date.get_sort_value()
+        if date.is_empty() or not sort_value:
+            return (1, 0, 0)
+        modifier = date.get_modifier()
+        if modifier in (Date.MOD_BEFORE, Date.MOD_TO):
+            priority = 0
+        elif modifier in (Date.MOD_AFTER, Date.MOD_FROM):
+            priority = 2
+        else:
+            priority = 1
+        return (0, sort_value, priority)
 
     def __get_types(self):
         type_url = "https://gov.genealogy.net/types.owl"
@@ -702,16 +888,24 @@ class CustomGOVImport(Gramplet):
         except urllib.error.URLError as e:
             self.__log(_("GOV request failed: %s") % str(e.reason))
             eMsg = _("GOV error on id %s with code: " % gov_id)
-            WarningDialog(eMsg + e.reason)
-            return place, [], ""
+            WarningDialog(eMsg + str(e.reason))
+            return place, None, ""
         data = response.read()
 
         dom = parseString(data)
-        top = dom.getElementsByTagName("gov:GovObject")
+        top = [
+            obj for obj in dom.getElementsByTagNameNS(GOV_NAMESPACE, "GovObject")
+            if obj.getAttributeNS(RDF_NAMESPACE, "about") in (
+                "http://gov.genealogy.net/" + gov_id,
+                "https://gov.genealogy.net/" + gov_id,
+            )
+        ]
 
         if not len(top):
             self.__log(_("No GOV data found: %s") % gov_id)
-            return place, [], ""
+            return place, None, ""
+
+        self._gov_id_checks[gov_id] = True
 
         count = 0
         place_type_name = ""
@@ -848,9 +1042,13 @@ class CustomGOVImport(Gramplet):
                 "end", "from %(begin)s to %(end)s"
             ) % {"begin": begin_str, "end": end_str}
         elif begin_str:
-            date_str = _("from %s") % begin_str
+            date = parser.parse(begin_str)
+            date.set_modifier(Date.MOD_AFTER)
+            return date
         elif end_str:
-            date_str = _("to %s") % end_str
+            date = parser.parse(end_str)
+            date.set_modifier(Date.MOD_BEFORE)
+            return date
         else:
             date_str = ""
 

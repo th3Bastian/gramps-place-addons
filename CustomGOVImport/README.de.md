@@ -7,6 +7,28 @@ CustomGOVImport ist ein Gramplet für Gramps 6.0 zum Importieren von Orten aus d
 unabhängige Abspaltung des GetGOV-Gramplets und verwendet eine eigene Plugin-ID
 und eigene Einstellungen.
 
+## Version 1.2.0
+
+- Optionale Sortierung aller Ortszugehörigkeiten nach Bezugsdatum beziehungsweise
+  Beginn der Zeitspanne. Bei gleichem Datum: vor, genaues Datum oder Zeitraum,
+  danach nach. Undatierte Einträge stehen zuletzt; Grenzwerte werden nicht benutzt.
+- Optionale Aktualisierung vorhandener Orte mit GOV-Daten: Hauptname, gelieferte
+  Ortsart und Koordinaten, Internetadressen sowie fehlende alternative Namen.
+- Nicht mehr gelieferte Zugehörigkeiten werden nur im Aktualisierungsmodus
+  entfernt, wenn die Gramps-ID des übergeordneten Zielortes durch GOV bestätigt
+  ist. Andere und nicht bestätigte Zuordnungen bleiben erhalten. Fehlgeschlagene
+  GOV-Abfragen lösen keine Löschung aus.
+- Einseitige Datumsangaben werden mit unveränderten Datumswerten als „vor“ oder
+  „nach“ importiert. Geschlossene Zeitspannen bleiben „von … bis …“. Die
+  GOV-Ungenauigkeit innerhalb eines Jahres oder Monats wird durch die
+  Gramps-Grenzberechnung nicht vollständig abgebildet; dies ist bewusst akzeptiert.
+- Vorhandene „bis/ab“-Angaben werden nur korrigiert, wenn Zielort und Zeitraum in
+  der aktuellen GOV-Antwort vorkommen. Unterschiedliche Schreibweisen erzeugen
+  keine Doppelungen mehr. Nicht passende Zugehörigkeiten bleiben unverändert.
+- Tooltips für alle drei Checkboxen und aktualisierte Übersetzungen auf Deutsch,
+  Kroatisch, Niederländisch, europäischem Portugiesisch und Slowakisch. Beide
+  neuen Optionen sind standardmäßig ausgeschaltet.
+
 ## Version 1.1.0
 
 - Sortiert ausgeschlossene Ortsarten beim Laden und Speichern alphabetisch.
@@ -44,6 +66,29 @@ Objekt zu importieren. Seine direkten Referenzen auf übergeordnete Orte werden
 weiterhin geprüft. Ist der referenzierte Ort bereits in Gramps vorhanden,
 wird eine Beziehung angelegt; andernfalls wird die fehlende Referenz im
 Live-Log gemeldet.
+
+Aktiviere **Vorhandene Orte mit GOV-Daten aktualisieren**, um bestehende Orte
+mit den aktuellen GOV-Angaben zu aktualisieren. Gelieferte Hauptnamen, Ortsarten
+und Koordinaten werden übernommen; die Internetadressen werden durch die
+GOV-Adressen ersetzt. Fehlende alternative Namen werden ergänzt. Vorhandene
+alternative Namen, Notizen und andere nicht betroffene Daten bleiben erhalten.
+
+Im Aktualisierungsmodus werden nicht mehr von GOV gelieferte Zugehörigkeiten
+entfernt, wenn die Gramps-ID des übergeordneten Zielortes durch GOV bestätigt
+wird. Nicht bestätigte IDs und fehlgeschlagene Abfragen berechtigen nicht zum
+Löschen. Ist die Checkbox ausgeschaltet, werden fehlende Zugehörigkeiten ergänzt,
+aber keine veralteten Zugehörigkeiten entfernt.
+
+**Ortszugehörigkeiten nach Datum sortieren** sortiert unabhängig davon die gesamte
+Liste einschließlich der erhaltenen Nutzer-Zuordnungen. Sortiert wird aufsteigend
+nach Bezugsdatum beziehungsweise Beginn der Zeitspanne, bei gleichem Datum in
+der Reihenfolge vor → genaues Datum/Zeitspanne → nach. Undatierte Einträge und
+reine Textdaten stehen am Ende. Bei gleichem Sortierschlüssel bleibt die bisherige
+Reihenfolge erhalten. Beide neuen Checkboxen sind standardmäßig ausgeschaltet.
+
+In beiden Modi werden alte „bis“- und „ab/von“-Angaben nur dann zu „vor“ und
+„nach“ korrigiert, wenn Zielort und Zeitraum in den aktuellen GOV-Daten vorkommen.
+Auch die Dublettenbereinigung ist auf diese Zugehörigkeiten begrenzt.
 
 ## Konfiguration
 
