@@ -1037,6 +1037,8 @@ class CustomGOVImport(Gramplet):
         if len(end):
             end_str = end[0].childNodes[0].data
 
+        if begin_str and end_str and begin_str == end_str:
+            return parser.parse(begin_str)
         if begin_str and end_str:
             date_str = _trans.pgettext(
                 "end", "from %(begin)s to %(end)s"
