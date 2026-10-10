@@ -21,5 +21,16 @@
     "a": 1,
     "z": "CustomGOVImport.addon.tgz",
     "h": "https://github.com/th3Bastian/gramps-place-addons/blob/main/CustomGOVImport/README.de.md"
+  },
+  {
+    "n": "CustomDetails",
+    "i": "CustomDetails",
+    "t": 10,
+    "d": "Personendetails mit Kekulé- und d’Aboville-Nummern sowie Bezugsperson",
+    "v": "1.3.0",
+    "g": "6.0",
+    "s": 3,
+    "z": "CustomDetails.addon.tgz",
+    "h": "https://github.com/th3Bastian/gramps-place-addons/blob/main/CustomDetails/README.de.md"
   }
 ]
