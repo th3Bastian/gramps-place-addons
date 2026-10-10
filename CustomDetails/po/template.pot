@@ -1,0 +1,147 @@
+# CustomDetails translations. GPL-2.0-or-later.
+msgid ""
+msgstr "Project-Id-Version: CustomDetails 1.3.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-10 12:00+0200\nPO-Revision-Date: 2026-10-10 12:00+0200\nLanguage: \nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: customdetails.py:496
+msgid "%(date)s - %(place)s."
+msgstr ""
+
+#: customdetails.py:498
+msgid "%(date)s."
+msgstr ""
+
+#: daboville_index.py:19 kekule_index.py:18
+msgid "Calculation limit reached; the list of numbers may be incomplete"
+msgstr ""
+
+#: customdetails.py:364
+msgid "Calculation notice"
+msgstr ""
+
+#: customdetails.gpr.py:5 customdetails.gpr.py:13
+msgid "CustomDetails"
+msgstr ""
+
+#: daboville_index.py:23
+msgid "Cyclic child relationship skipped"
+msgstr ""
+
+#: kekule_index.py:22
+msgid "Cyclic parent relationship skipped"
+msgstr ""
+
+#: customdetails.py:456
+msgid "Father"
+msgstr ""
+
+#: daboville_index.py:44 kekule_index.py:42
+msgid "Generation limit reached; the list of numbers may be incomplete"
+msgstr ""
+
+#: customdetails.py:345 customdetails.py:322
+msgid "Kekulé number"
+msgstr ""
+
+#: customdetails.py:347
+msgid "Kekulé: %s"
+msgstr ""
+
+#: customdetails.py:331 customdetails.py:320
+msgid "Kinship"
+msgstr ""
+
+#: daboville_index.py:52
+msgid "Missing child reference skipped"
+msgstr ""
+
+#: daboville_index.py:36
+msgid "Missing family skipped"
+msgstr ""
+
+#: kekule_index.py:34
+msgid "Missing parent family skipped"
+msgstr ""
+
+#: daboville_index.py:27 kekule_index.py:26
+msgid "Missing person record skipped"
+msgstr ""
+
+#: customdetails.py:457
+msgid "Mother"
+msgstr ""
+
+#: customdetails.py:405
+msgid "No active person"
+msgstr ""
+
+#: customdetails.py:318
+msgid "No home person has been set"
+msgstr ""
+
+#: customdetails.py:342 customdetails.py:357
+msgid "No number found in the examined part of the family tree"
+msgstr ""
+
+#: customdetails.py:304
+msgid "No relationship found within the configured search depth"
+msgstr ""
+
+#: customdetails.py:344
+msgid "Not a direct ancestor of the reference person"
+msgstr ""
+
+#: customdetails.py:359
+msgid "Not a direct descendant of the reference person"
+msgstr ""
+
+#: customdetails.gpr.py:6
+msgid "Person details with Kekulé and d’Aboville numbers and a reference person"
+msgstr ""
+
+#: customdetails.py:328 customdetails.py:318
+msgid "Reference person"
+msgstr ""
+
+#: customdetails.py:295
+msgid "Reference person themself"
+msgstr ""
+
+#: customdetails.py:113
+msgid "Religion"
+msgstr ""
+
+#: customdetails.py:68
+msgid "Show Kekulé number"
+msgstr ""
+
+#: customdetails.py:69
+msgid "Show d’Aboville number"
+msgstr ""
+
+#: customdetails.py:67
+msgid "Show kinship"
+msgstr ""
+
+#: customdetails.py:66
+msgid "Show reference person"
+msgstr ""
+
+#: customdetails.py:71
+msgid "Show the following attributes"
+msgstr ""
+
+#: customdetails.py:113
+msgid "Title"
+msgstr ""
+
+#: customdetails.py:453 customdetails.py:454 customdetails.py:445 customdetails.py:451 customdetails.py:443 customdetails.py:449
+msgid "Unknown"
+msgstr ""
+
+#: customdetails.py:360 customdetails.py:324
+msgid "d’Aboville number"
+msgstr ""
+
+#: customdetails.py:362
+msgid "d’Aboville: %s"
+msgstr ""

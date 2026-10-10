@@ -1,6 +1,6 @@
 # Gramps Place Addons
 
-Independent Gramps add-ons for working with places.
+Independent Gramps add-ons for place data and person details.
 
 **[Deutsche Anleitung](README.de.md)**
 
@@ -10,6 +10,7 @@ Independent Gramps add-ons for working with places.
 | --- | --- | --- |
 | [Hide Duplicate Place Names](HideDuplicatePlaceNames/) | Stable for Gramps 6.0 | Combines immediately consecutive identical place names in event displays for configured place types. |
 | [CustomGOVImport](CustomGOVImport/) | Stable for Gramps 6.0 | Imports GOV places with configurable place-type exclusions, optional parent imports, and a live log. |
+| [CustomDetails](CustomDetails/) | Stable for Gramps 6.0; tested with 6.0.8 | Person details with configurable attributes, kinship, Kekulé and d’Aboville numbering. |
 
 ## Install through Gramps Addon Manager
 
@@ -63,6 +64,16 @@ shown in the Gramplet's live log.
 See the [CustomGOVImport documentation](CustomGOVImport/) for configuration and
 usage details.
 
+## CustomDetails
+
+CustomDetails extends the Person Details Gramplet with selected attributes, the
+Gramps home person as reference person, kinship, Kekulé ancestor numbers and
+d’Aboville descendant numbers. Each added field can be enabled independently.
+English and German UI translations and documentation are included.
+
+See the [CustomDetails documentation](CustomDetails/) for installation and settings.
+Install CustomDetails through the Gramps Addon Manager using the project URL above.
+
 ## Updating and troubleshooting
 
 When a later version is published, Gramps can discover it through the same
@@ -89,7 +100,7 @@ Addon Manager. Releases are tested before being added to `dist`.
 Please report problems or suggestions through the repository's
 [Issues](https://github.com/th3Bastian/gramps-place-addons/issues).
 
-Each add-on documents its copyright and license. Both add-ons are licensed
+Each add-on documents its copyright and license. All add-ons are licensed
 under GPL-2.0-or-later.
 
 ## Acknowledgement

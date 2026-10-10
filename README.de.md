@@ -1,6 +1,6 @@
 # Gramps Place Addons
 
-Unabhängig gepflegte Gramps-Erweiterungen rund um Ortsdaten.
+Unabhängig gepflegte Gramps-Erweiterungen für Ortsdaten und Personendetails.
 
 **[English instructions](README.md)**
 
@@ -10,6 +10,7 @@ Unabhängig gepflegte Gramps-Erweiterungen rund um Ortsdaten.
 | --- | --- | --- |
 | [Doppelte Ortsnamen unterdrücken](HideDuplicatePlaceNames/) | Stabil für Gramps 6.0 | Fasst unmittelbar aufeinanderfolgende gleiche Ortsnamen für ausgewählte Ortsarten in der Anzeige zusammen. |
 | [CustomGOVImport](CustomGOVImport/README.de.md) | Stabil für Gramps 6.0 | Importiert GOV-Orte mit konfigurierbaren ausgeschlossenen Ortsarten, optionalem Import übergeordneter Orte und Live-Log. |
+| [CustomDetails](CustomDetails/README.de.md) | Stabil für Gramps 6.0; mit 6.0.8 geprüft | Personendetails mit konfigurierbaren Attributen, Verwandtschaft sowie Kekulé- und d’Aboville-Nummern. |
 
 ## Installation über die Erweiterungsverwaltung
 
@@ -135,6 +136,17 @@ Lizenziert unter der GNU General Public License, Version 2 oder höher.
 Die vollständige deutsche Plugin-Dokumentation steht in der
 [deutschen README zu CustomGOVImport](CustomGOVImport/README.de.md).
 
+## CustomDetails
+
+CustomDetails ergänzt das Details-Gramplet um ausgewählte Attribute, die
+Gramps-Hauptperson als Bezugsperson, Verwandtschaft sowie Kekulé-Ahnen- und
+d’Aboville-Nachkommennummern. Jede Zusatzangabe lässt sich unabhängig einschalten.
+Oberfläche und Anleitungen sind auf Deutsch und Englisch vorhanden.
+
+Installation und Einstellungen beschreibt die [CustomDetails-Anleitung](CustomDetails/README.de.md).
+CustomDetails lässt sich über die Erweiterungsverwaltung mit der oben genannten
+Projektadresse installieren.
+
 ## Aktualisieren und Fehler suchen
 
 Wenn eine neue Version veröffentlicht wird, erkennt Gramps sie über dieselbe
@@ -164,7 +176,7 @@ Fehler und Vorschläge bitte über die
 [Issues](https://github.com/th3Bastian/gramps-place-addons/issues) dieses
 Repositorys melden.
 
-Jede Erweiterung dokumentiert ihr eigenes Urheberrecht und ihre Lizenz. Beide
+Jede Erweiterung dokumentiert ihr eigenes Urheberrecht und ihre Lizenz. Alle
 Erweiterungen stehen unter GPL-2.0-or-later.
 
 ## Hinweis zur Entstehung
