@@ -6,6 +6,15 @@ CustomGOVImport is a Gramps 6.0 Gramplet for importing places from the
 [Geschichtliches Ortsverzeichnis (GOV)](https://gov.genealogy.net/). It is an
 independent fork of the GetGOV Gramplet and uses its own plugin ID and settings.
 
+## Version 1.2.1
+
+- Fixes duplicate place relationships following the switch from equal-bound
+  date spans to single dates.
+- Converts existing spans with identical boundaries only when the target and
+  date are confirmed by current GOV data. Removes matching duplicates even
+  with the update option disabled. Applies to year, month and day precision.
+- Preserves spans with different start and end dates.
+
 ## Version 1.2.0
 
 - Adds optional chronological sorting of place relationships, including existing

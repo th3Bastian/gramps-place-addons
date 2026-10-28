@@ -1,5 +1,15 @@
 # CustomGOVImport – Änderungen
 
+## Version 1.2.1
+
+- Korrigiert doppelte Ortszugehörigkeiten nach der Umstellung von Zeitspannen
+  mit identischem Beginn und Ende auf einfache Datumsangaben.
+- Bestehende Zeitspannen mit gleichen Grenzen werden nur dann in ein einfaches
+  Datum umgewandelt, wenn Zielort und Datum durch die aktuellen GOV-Daten
+  bestätigt werden. Passende Dubletten werden auch ohne Aktualisierungsoption
+  entfernt. Dies gilt für Jahres-, Monats- und Tagesangaben.
+- Zeitspannen mit unterschiedlichen Grenzen bleiben unverändert.
+
 ## Version 1.2.0
 
 - Optionale Sortierung aller Ortszugehörigkeiten nach Bezugsdatum beziehungsweise

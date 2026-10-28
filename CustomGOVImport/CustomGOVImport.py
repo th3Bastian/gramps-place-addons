@@ -698,6 +698,15 @@ class CustomGOVImport(Gramplet):
                             existing_date.set_modifier(Date.MOD_BEFORE)
                         elif modifier == Date.MOD_FROM:
                             existing_date.set_modifier(Date.MOD_AFTER)
+                        elif (
+                            modifier == Date.MOD_SPAN
+                            and existing_date.get_start_date() == existing_date.get_stop_date()
+                        ):
+                            existing_date.set(
+                                modifier=Date.MOD_NONE,
+                                value=existing_date.get_start_date(),
+                                text="",
+                            )
                         else:
                             continue
                         existing_ref.set_date_object(existing_date)
@@ -813,12 +822,17 @@ class CustomGOVImport(Gramplet):
         """Ignore input spelling for structured dates, retain text-only dates."""
         date = reference.get_date_object()
         if normalize_open_dates:
-            # Compare legacy dates without modifying the stored reference.
+            # Compare legacy open dates and equal-bound spans without mutation.
             date = Date(date)
             if date.get_modifier() == Date.MOD_TO:
                 date.set_modifier(Date.MOD_BEFORE)
             elif date.get_modifier() == Date.MOD_FROM:
                 date.set_modifier(Date.MOD_AFTER)
+            elif (
+                date.get_modifier() == Date.MOD_SPAN
+                and date.get_start_date() == date.get_stop_date()
+            ):
+                date.set(modifier=Date.MOD_NONE, value=date.get_start_date(), text="")
         return (
             reference.ref,
             date.serialize(no_text_date=date.get_modifier() != Date.MOD_TEXTONLY),
