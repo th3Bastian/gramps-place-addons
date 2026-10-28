@@ -6,3 +6,6 @@ __pycache__/
 
 # Local release payloads built from source
 /release/
+
+# CustomGOVImport translation sources stay in the local Gramps plugin
+/CustomGOVImport/po/

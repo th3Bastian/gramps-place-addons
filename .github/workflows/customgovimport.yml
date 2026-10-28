@@ -1,0 +1,18 @@
+name: CustomGOVImport tests
+on:
+  push:
+    paths: ['CustomGOVImport/**', '.github/workflows/customgovimport.yml']
+  pull_request:
+    paths: ['CustomGOVImport/**', '.github/workflows/customgovimport.yml']
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m unittest discover -s CustomGOVImport/tests -v
+      - run: python CustomGOVImport/tools/build_package.py /tmp/CustomGOVImport.addon.tgz

@@ -136,3 +136,22 @@ Copyright © 2024 Gary Griffin
 Copyright © 2026 Sebastian Klossek
 
 Lizenziert unter der GNU General Public License, Version 2 oder höher.
+
+## Entwicklung und Paketbau
+
+Die Testversion wird im lokalen Gramps-Plugin-Verzeichnis entwickelt. Nach
+erfolgreichem Test werden nur die benötigten Python-Dateien und kompilierten
+Übersetzungen (`locale/**/*.mo`) ins Repository übernommen. Übersetzungsquellen
+(`po/*.po`, `po/*.pot`) bleiben ausschließlich im lokalen Plugin-Verzeichnis.
+Tests, Dokumentation und Paketbau werden im Repository gepflegt.
+
+Vom Repository-Stamm aus:
+
+```sh
+python3 -m unittest discover -s CustomGOVImport/tests -v
+python3 CustomGOVImport/tools/build_package.py /tmp/CustomGOVImport.addon.tgz
+```
+
+Das Installationspaket enthält die Python-Dateien, kompilierten Übersetzungen,
+README und Änderungsverlauf. Tests, Build-Skripte und Übersetzungsquellen werden
+nicht ausgeliefert.
