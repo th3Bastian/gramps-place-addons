@@ -6,6 +6,42 @@ CustomGOVImport is a Gramps 6.0 Gramplet for importing places from the
 [Geschichtliches Ortsverzeichnis (GOV)](https://gov.genealogy.net/). It is an
 independent fork of the GetGOV Gramplet and uses its own plugin ID and settings.
 
+## Version 1.2.2 – October 30, 2026
+
+- Cleans up duplicate alternative names when the name, language and normalized
+  date are confirmed by current GOV data. Matches legacy from/to dates against
+  after/before dates and equal-bound spans against single dates. Different
+  languages and historical periods are preserved; unconfirmed names are retained.
+- Treats genuinely empty dates consistently for names and place relationships,
+  preventing duplicates caused by different internal empty values after manual
+  clearing, saving and reloading.
+- The existing date sorting option now also sorts alternative names by date or
+  span start, with undated names last. Ties remain stable; the primary name is
+  not reordered.
+- Also applies to successfully fetched parent places.
+
+### Updating to 1.2.2
+
+Refresh the Gramps Addon Manager list, update CustomGOVImport to **1.2.2** and
+restart Gramps. If needed, add this project URL:
+
+```text
+https://raw.githubusercontent.com/th3Bastian/gramps-place-addons/dist/gramps60
+```
+
+Installing the update alone does not change existing place records. Import
+affected places again:
+
+- Enable **Update existing places with GOV data** to add alternative names and
+  clean up confirmed duplicate names.
+- Enable **Sort place relationships by date** to sort relationships and alternative
+  names. The checkbox label is unchanged; it now covers both lists.
+- Leave **Do not import parent places** unchecked to process parent places too.
+
+Confirmed duplicate undated relationships are cleaned up even with updating
+disabled. As before, updating also refreshes other place data and can remove
+obsolete relationships to GOV-confirmed targets; it is not a names-only cleanup.
+
 ## Version 1.2.1
 
 - Fixes duplicate place relationships following the switch from equal-bound

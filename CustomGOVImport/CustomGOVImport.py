@@ -772,6 +772,13 @@ class CustomGOVImport(Gramplet):
                         ):
                             place.set_placeref_list(sorted_references)
                             place_changed = True
+                        names = place.get_alternative_names()
+                        sorted_names = sorted(
+                            names, key=self.__reference_date_sort_key
+                        )
+                        if any(old is not new for old, new in zip(names, sorted_names)):
+                            place.set_alternative_names(sorted_names)
+                            place_changed = True
                     if place_changed:
                         self.dbstate.db.commit_place(place, trans)
         self.__log(_("Import finished."))
@@ -788,9 +795,52 @@ class CustomGOVImport(Gramplet):
         if fetched.get_longitude():
             place.set_longitude(fetched.get_longitude())
         place.set_url_list(fetched.get_url_list())
+        # Only reconcile names whose value, language and normalized period
+        # are confirmed by the current GOV response.
+        identity = CustomGOVImport.__name_identity
+        confirmed = {
+            identity(name): name for name in fetched.get_all_names()
+            if name.get_value()
+        }
+        seen = {identity(place.get_name())}
+        retained = []
+        for name in place.get_alternative_names():
+            key = identity(name)
+            if key in confirmed:
+                if key in seen:
+                    continue
+                name.set_date_object(Date(confirmed[key].get_date_object()))
+            retained.append(name)
+            seen.add(key)
         for name in fetched.get_alternative_names():
-            if not any(existing.is_equal(name) for existing in place.get_all_names()):
-                place.add_alternative_name(name)
+            key = identity(name)
+            if name.get_value() and key not in seen:
+                retained.append(name)
+                seen.add(key)
+        place.set_alternative_names(retained)
+
+    @staticmethod
+    def __name_identity(name):
+        """Match legacy GOV dates without changing unconfirmed name records."""
+        date = Date(name.get_date_object())
+        # Gramps reloads empty dates as Date(), while parsing an empty
+        # input can produce an empty text date. Both mean no date.
+        if date.is_empty() and not date.get_text().strip():
+            return (name.get_value(), name.get_language(), None)
+        if date.get_modifier() == Date.MOD_FROM:
+            date.set_modifier(Date.MOD_AFTER)
+        elif date.get_modifier() == Date.MOD_TO:
+            date.set_modifier(Date.MOD_BEFORE)
+        elif (
+            date.get_modifier() == Date.MOD_SPAN
+            and date.get_start_date() == date.get_stop_date()
+        ):
+            date.set(modifier=Date.MOD_NONE, value=date.get_start_date(), text="")
+        return (
+            name.get_value(),
+            name.get_language(),
+            date.serialize(no_text_date=date.get_modifier() != Date.MOD_TEXTONLY),
+        )
 
     def __is_gov_id(self, gov_id):
         """Only a successful object lookup authorizes removing a relationship."""
@@ -821,6 +871,9 @@ class CustomGOVImport(Gramplet):
     def __reference_identity(reference, normalize_open_dates=False):
         """Ignore input spelling for structured dates, retain text-only dates."""
         date = reference.get_date_object()
+        # Match undated references across parsing and database round-trips.
+        if date.is_empty() and not date.get_text().strip():
+            return (reference.ref, None)
         if normalize_open_dates:
             # Compare legacy open dates and equal-bound spans without mutation.
             date = Date(date)

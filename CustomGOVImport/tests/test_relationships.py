@@ -1,7 +1,7 @@
 """Exercise the plugin's relationship reconciliation without GTK or a database.
 
 Date is a small test double. The installed Gramps Date class and the live
-Gramps import were additionally checked before releasing 1.2.1.
+Gramps import were additionally checked before releasing 1.2.2.
 """
 import ast
 import copy
@@ -18,6 +18,12 @@ class Date:
         self.modifier = other.modifier if other else modifier
         self.text = other.text if other else ''
 
+    def get_text(self): return self.text
+    def is_empty(self):
+        return not any(self.value[:3]) and not any(self.value[4:7]) and not (self.modifier == self.MOD_TEXTONLY and self.text)
+    def get_sort_value(self):
+        day, month, year = self.value[:3]
+        return year * 372 + month * 31 + day if year else 0
     def get_modifier(self): return self.modifier
     def set_modifier(self, modifier): self.modifier = modifier
     def get_start_date(self): return self.value[:4]
@@ -39,6 +45,8 @@ class Place:
     def __init__(self, handle, refs=()):
         self.handle = self.gramps_id = handle
         self.refs = list(refs)
+    def get_alternative_names(self): return self.names
+    def set_alternative_names(self, names): self.names = names
     def get_placeref_list(self): return self.refs
     def set_placeref_list(self, refs): self.refs = refs
     def add_placeref(self, ref): self.refs.append(ref)
@@ -55,7 +63,7 @@ def load_plugin():
     tree = ast.parse(source.read_text())
     cls = next(n for n in tree.body if isinstance(n, ast.ClassDef))
     cls.bases = []
-    methods = {'__import_places', '__reference_identity'}
+    methods = {'__import_places', '__reference_identity', '__reference_date_sort_key', '__name_identity', '__update_place_values'}
     cls.body = [n for n in cls.body if isinstance(n, ast.FunctionDef) and n.name in methods]
     ns = dict(Date=Date, PlaceRef=Ref, DbTxn=Transaction, _=lambda x: x,
               config=NS(get=lambda _: 0),
@@ -66,9 +74,11 @@ def load_plugin():
 
 
 class RelationshipsTest(unittest.TestCase):
-    def run_import(self, existing, incoming, update=False):
+    def run_import(self, existing, incoming, update=False, names=None, sort=False):
         plugin = load_plugin()
         place = Place('child', copy.deepcopy(existing))
+        place.names = copy.deepcopy(names or [])
+        self.last_place = place
         targets = {key: Place(key) for key in ('parent', 'other')}
         targets['child'] = place
         db = NS(get_place_from_gramps_id=targets.get,
@@ -76,7 +86,7 @@ class RelationshipsTest(unittest.TestCase):
         plugin.dbstate = NS(db=db)
         plugin.type_dic = {'loaded': True}
         for name, value in [('skip_parent_places', True),
-                            ('sort_place_references', False),
+                            ('sort_place_references', sort),
                             ('update_existing_places', update)]:
             setattr(plugin, name, NS(get_active=lambda v=value: v))
         plugin._CustomGOVImport__log = lambda *args: None

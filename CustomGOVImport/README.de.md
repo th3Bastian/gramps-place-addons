@@ -7,6 +7,46 @@ CustomGOVImport ist ein Gramplet für Gramps 6.0 zum Importieren von Orten aus d
 unabhängige Abspaltung des GetGOV-Gramplets und verwendet eine eigene Plugin-ID
 und eigene Einstellungen.
 
+## Version 1.2.2 – 30. Oktober 2026
+
+- Bereinigt doppelte alternative Namen, wenn Name, Sprache und normalisiertes
+  Datum durch die aktuellen GOV-Daten bestätigt werden. Alte „ab/bis“-Angaben
+  werden mit „nach/vor“ abgeglichen; Zeitspannen mit identischen Grenzen mit
+  einfachen Datumsangaben. Unterschiedliche Sprachen und historische Zeiträume
+  bleiben erhalten. Nicht bestätigte Namen bleiben unverändert.
+- Vergleicht tatsächlich leere Datumsfelder einheitlich – sowohl bei Namen als
+  auch bei Ortszugehörigkeiten. Damit entstehen nach manuellem Leeren, Speichern
+  und erneutem Laden keine Dubletten durch unterschiedliche interne Leerwerte.
+- Die vorhandene Datumssortieroption sortiert jetzt auch alternative Namen,
+  aufsteigend nach Datum bzw. Zeitspannenbeginn, undatierte zuletzt. Bei gleichen
+  Datumswerten bleibt die Reihenfolge stabil; der Hauptname wird nicht sortiert.
+- Gilt auch für erfolgreich abgerufene übergeordnete Orte.
+
+### Update auf 1.2.2
+
+Im Gramps-Addon-Manager die Liste aktualisieren, CustomGOVImport auf **1.2.2**
+aktualisieren und Gramps neu starten. Bei Bedarf dieses Projekt hinzufügen:
+
+```text
+https://raw.githubusercontent.com/th3Bastian/gramps-place-addons/dist/gramps60
+```
+
+Die Installation allein ändert keine bestehenden Ortsdaten. Betroffene Orte
+anschließend erneut importieren:
+
+- **Vorhandene Orte mit GOV-Daten aktualisieren** aktivieren, um alternative
+  Namen zu ergänzen und bestätigte Namensdubletten zu bereinigen.
+- **Ortszugehörigkeiten nach Datum sortieren** aktivieren, um Zugehörigkeiten
+  und alternative Namen zu sortieren. Die Beschriftung der Checkbox bleibt
+  unverändert; die Funktion umfasst jetzt beide Listen.
+- Für die Verarbeitung übergeordneter Orte **Keine übergeordneten Orte
+  importieren** ausgeschaltet lassen.
+
+Bestätigte doppelte Zugehörigkeiten ohne Datum werden auch ohne aktivierte
+Aktualisierungsoption bereinigt. Die Aktualisierungsoption erneuert wie bisher
+auch weitere Ortsdaten und kann obsolete, durch GOV bestätigte Zugehörigkeiten
+entfernen; sie ist keine reine Namensbereinigung.
+
 ## Version 1.2.1
 
 - Korrigiert doppelte Ortszugehörigkeiten nach der Umstellung von Zeitspannen

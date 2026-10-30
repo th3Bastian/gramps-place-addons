@@ -1,5 +1,19 @@
 # CustomGOVImport release history
 
+## Version 1.2.2 – October 30, 2026
+
+- Cleans up duplicate alternative names when the name, language and normalized
+  date are confirmed by current GOV data. Matches legacy from/to dates against
+  after/before dates and equal-bound spans against single dates. Different
+  languages and historical periods are preserved; unconfirmed names are retained.
+- Treats genuinely empty dates consistently for names and place relationships,
+  preventing duplicates caused by different internal empty values after manual
+  clearing, saving and reloading.
+- The existing date sorting option now also sorts alternative names by date or
+  span start, with undated names last. Ties remain stable; the primary name is
+  not reordered.
+- Also applies to successfully fetched parent places.
+
 ## Version 1.2.1
 
 - Fixes duplicate place relationships following the switch from equal-bound

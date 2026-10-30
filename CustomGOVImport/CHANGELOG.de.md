@@ -1,5 +1,20 @@
 # CustomGOVImport – Änderungen
 
+## Version 1.2.2 – 30. Oktober 2026
+
+- Bereinigt doppelte alternative Namen, wenn Name, Sprache und normalisiertes
+  Datum durch die aktuellen GOV-Daten bestätigt werden. Alte „ab/bis“-Angaben
+  werden mit „nach/vor“ abgeglichen; Zeitspannen mit identischen Grenzen mit
+  einfachen Datumsangaben. Unterschiedliche Sprachen und historische Zeiträume
+  bleiben erhalten. Nicht bestätigte Namen bleiben unverändert.
+- Vergleicht tatsächlich leere Datumsfelder einheitlich – sowohl bei Namen als
+  auch bei Ortszugehörigkeiten. Damit entstehen nach manuellem Leeren, Speichern
+  und erneutem Laden keine Dubletten durch unterschiedliche interne Leerwerte.
+- Die vorhandene Datumssortieroption sortiert jetzt auch alternative Namen,
+  aufsteigend nach Datum bzw. Zeitspannenbeginn, undatierte zuletzt. Bei gleichen
+  Datumswerten bleibt die Reihenfolge stabil; der Hauptname wird nicht sortiert.
+- Gilt auch für erfolgreich abgerufene übergeordnete Orte.
+
 ## Version 1.2.1
 
 - Korrigiert doppelte Ortszugehörigkeiten nach der Umstellung von Zeitspannen
